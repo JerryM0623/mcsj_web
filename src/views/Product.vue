@@ -1,10 +1,10 @@
 <template>
-<div class="about">我是about页面</div>
+<div class="product">我是Product页面</div>
 </template>
 
 <script>
 export default {
-    name: "About"
+    name: "Product"
 }
 </script>
 

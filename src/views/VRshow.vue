@@ -1,10 +1,10 @@
 <template>
-<div class="about">我是about页面</div>
+<div class="VRshow">我是VRshow页面</div>
 </template>
 
 <script>
 export default {
-    name: "About"
+    name: "VRshow"
 }
 </script>
 
