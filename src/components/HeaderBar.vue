@@ -4,7 +4,7 @@
             <img src="../assets/logo.png">
         </div>
         <ul class="links">
-            <li v-for="link in links" :key="link.index"><router-link :to="link.path">{{link.text}}</router-link></li>
+            <li v-for="link in links" :key="link.index"><router-link exact :to="link.path">{{link.text}}</router-link></li>
         </ul>
     </header>
 </template>
