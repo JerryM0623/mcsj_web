@@ -17,7 +17,25 @@ export default {
     },
     methods:{
         toTop(){
-            console.log('111')
+            // 首先获取现在的值
+            let topValue = this.getScrollTop();
+            // 运行
+            if (topValue > 0){
+                // 设计定时器滚回顶部
+                let timer = setInterval(() => {
+                    topValue -= 50;
+                    console.log('定时器持续开启中')
+                    if (topValue > 0) {
+                        if (document.documentElement && document.documentElement.scrollTop) {
+                            document.documentElement.scrollTop = topValue;
+                        } else if (document.body && document.body.scrollTop) {
+                            document.body.scrollTop = topValue;
+                        }
+                    }else{
+                        clearInterval(timer)
+                    }
+                },10)
+            }
         },
         getScrollTop(){
             let result;
@@ -28,6 +46,7 @@ export default {
             }
             // console.log(result)
             this.isTopBtnShow = result > 200
+            return result;
         }
     }
 }
@@ -38,7 +57,7 @@ export default {
         width: 80px;
         height: 80px;
         position: fixed;
-        bottom: 60px;
+        bottom: 68px;
         right: 60px;
         cursor: pointer;
     }

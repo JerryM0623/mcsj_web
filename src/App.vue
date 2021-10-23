@@ -22,7 +22,7 @@ export default {
 *{
     margin: 0;
     padding: 0;
-    font-size: 20px;
+    font-size: 16px;
 }
 #app{
     width: 100%;
@@ -43,7 +43,6 @@ a{
 }
 
 .clearfix {
-    /* 触发 hasLayout */
     zoom: 1;
 }
 </style>

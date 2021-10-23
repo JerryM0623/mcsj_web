@@ -33,7 +33,7 @@ export default {
                 },
                 {
                     path:'/consult',
-                    text:'媒体咨询'
+                    text:'媒体资讯'
                 },
                 {
                     path:'/VRshow',
