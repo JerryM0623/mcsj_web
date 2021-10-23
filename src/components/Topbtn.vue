@@ -1,6 +1,6 @@
 <template>
 <div v-show="isTopBtnShow" class="top-btn" @click="toTop">
-    <img src="../assets/top.jpg">
+    <img src="../assets/top.jpg" alt="top">
 </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
             } else if(document.body && document.body.scrollTop){
                 result = document.body.scrollTop;
             }
-            console.log(result)
+            // console.log(result)
             this.isTopBtnShow = result > 200
         }
     }

@@ -5,7 +5,8 @@
             <div class="footer-middle">
                 <div class="left-box">
                     <h3>佛山市星佰汇门窗</h3>
-                    <p>Add：广东省佛山市南海区松岗松夏工业园东风中路10号&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;Tel : 400-831-8282</p>
+                    <p>Add：广东省佛山市南海区松岗松夏工业园东风中路10
+                        号&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;Tel : 400-831-8282</p>
                 </div>
                 <div class="right-box">
                     <div class="QRCode-box">
@@ -14,7 +15,6 @@
                     <p>微信公众号</p>
                 </div>
             </div>
-            <div class="line"></div>
             <div class="footer-bottom">
                 <span>COPYRIGHT (©) 2019 佛山市星佰汇门窗</span>
                 <span><a href="#">技术支持：推搜网络</a></span>
@@ -68,11 +68,10 @@ export default {
     position: absolute;
     right: 20px;
     bottom: 5px;
-    /*margin-bottom: 10px;*/
 }
 .footer-middle .right-box .QRCode-box{
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
 }
 .footer-middle .right-box .QRCode-box img{
     width: 100%;
