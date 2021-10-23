@@ -54,6 +54,7 @@ export default {
     height: 100px;
     background-color: #111e47;
     position: relative;
+    z-index: 9999;
 }
 .logo{
     position: absolute;

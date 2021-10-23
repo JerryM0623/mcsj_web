@@ -1,13 +1,25 @@
 <template>
-<div class="product">我是Product页面</div>
+<div class="product">
+    <Banner>
+        <template>
+            <img src="../assets/banner2.jpg" alt="轮播图">
+        </template>
+    </Banner>
+</div>
 </template>
 
 <script>
+import Banner from '@/components/Banner'
 export default {
-    name: "Product"
+    name: "Product",
+    components:{
+        Banner
+    }
 }
 </script>
 
 <style scoped>
-
+.product{
+    height: 2000px;
+}
 </style>

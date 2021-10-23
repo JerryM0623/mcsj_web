@@ -1,10 +1,20 @@
 <template>
-<div class="contact">我是Contact页面</div>
+<div class="contact">
+    <Banner>
+        <template>
+            <img src="../assets/banner5.jpg" alt="轮播图">
+        </template>
+    </Banner>
+</div>
 </template>
 
 <script>
+import Banner from '@/components/Banner'
 export default {
-    name: "Contact"
+    name: "Contact",
+    components:{
+        Banner
+    }
 }
 </script>
 
