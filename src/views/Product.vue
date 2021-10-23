@@ -5,21 +5,22 @@
             <img src="../assets/banner2.jpg" alt="轮播图">
         </template>
     </Banner>
+    <Footer></Footer>
 </div>
 </template>
 
 <script>
 import Banner from '@/components/Banner'
+import Footer from '@/components/Footer'
 export default {
     name: "Product",
     components:{
-        Banner
+        Banner,
+        Footer
     }
 }
 </script>
 
 <style scoped>
-.product{
-    height: 2000px;
-}
+
 </style>

@@ -2,18 +2,18 @@
   <div id="app">
       <header-bar />
       <router-view></router-view>
-      <Topbtn></Topbtn>
+      <TopBtn></TopBtn>
   </div>
 </template>
 
 <script>
 import headerBar from '@/components/HeaderBar.vue'
-import Topbtn from '@/components/Topbtn'
+import TopBtn from '@/components/Topbtn'
 export default {
     name: "App",
     components:{
         headerBar,
-        Topbtn
+        TopBtn
     }
 }
 </script>
@@ -24,11 +24,26 @@ export default {
     padding: 0;
     font-size: 20px;
 }
+#app{
+    width: 100%;
+}
 li{
     list-style: none;
 }
 a{
     text-decoration: none;
     color: white;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    /* 触发 hasLayout */
+    zoom: 1;
 }
 </style>
