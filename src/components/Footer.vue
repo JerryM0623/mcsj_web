@@ -35,6 +35,7 @@ export default {
     width: 100%;
     background-color: #101e48;
     color: white;
+    border-top: 5px solid #d1a177;
 }
 .footer-box{
     margin: 0 150px;
