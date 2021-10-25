@@ -23,9 +23,9 @@ export default {
             if (topValue > 0){
                 // 设计定时器滚回顶部
                 let timer = setInterval(() => {
-                    topValue -= 50;
                     console.log('定时器持续开启中')
                     if (topValue > 0) {
+                        topValue -= 50;
                         if (document.documentElement && document.documentElement.scrollTop) {
                             document.documentElement.scrollTop = topValue;
                         } else if (document.body && document.body.scrollTop) {
