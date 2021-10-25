@@ -24,6 +24,10 @@ export default {
     padding: 0;
     font-size: 16px;
 }
+html,body{
+    font-family: 'Microsoft YaHei','Helvetica Neue','Arial','sans-serif','iconfont','icomoon','FontAwesome','Material Icons Extended';
+    min-width: 1300px;
+}
 #app{
     width: 100%;
 }
