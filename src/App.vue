@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <header-bar />
-      <router-view></router-view>
+      <router-view :customAnchor="customAnchor"></router-view>
       <TopBtn></TopBtn>
   </div>
 </template>
@@ -14,6 +14,12 @@ export default {
     components:{
         headerBar,
         TopBtn
+    },
+    methods:{
+        customAnchor(index) {
+            const titleElement = document.querySelector(index);
+            if (titleElement) titleElement.scrollIntoView();
+        }
     }
 }
 </script>

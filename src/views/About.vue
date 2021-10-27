@@ -213,17 +213,17 @@ import Artical from "@/components/Artical";
 
 export default {
     name: "About",
+    props:{
+        customAnchor:{
+            type:Function,
+            required:true
+        }
+    },
     components: {
         Banner,
         Footer,
         SubMenu,
         Artical
-    },
-    methods: {
-        customAnchor(index) {
-            const titleElement = document.querySelector(index);
-            if (titleElement) titleElement.scrollIntoView();
-        }
     },
     data() {
         return {
