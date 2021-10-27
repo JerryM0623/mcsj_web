@@ -63,7 +63,7 @@
                     星佰汇门窗（ＣＩＢＩＶＡ）是佛山市星际铝业有限公司南海星佰汇门窗分公司直属品牌，坐落于中国铝材之都——广东佛山，生产基地总面积50000多平方米，是一家集设计、研发、生产、销售、服务为一体的专业化、技术化门窗生产厂家。
                 </p>
                 <p>
-                    <img src="./static/about/introduce/logo_big.png" alt="">
+                    <img src="../assets/about/introduce/logo_big.png" alt="">
                 </p>
                 <h3>
                     公司业务
