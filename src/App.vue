@@ -34,6 +34,7 @@ export default {
 html,body{
     font-family: 'Microsoft YaHei','Helvetica Neue','Arial','sans-serif','iconfont','icomoon','FontAwesome','Material Icons Extended';
     min-width: 1300px;
+    background-color: #f5f5f5;
 }
 #app{
     width: 100%;
@@ -55,5 +56,18 @@ a{
 
 .clearfix {
     zoom: 1;
+}
+.label-box{
+    width: 430px;
+    font-size: 14px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #dcddde;
+    line-height: 20px;
+}
+.amap-marker-label{
+    border: none;
+    background-color: transparent;
 }
 </style>
