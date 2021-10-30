@@ -35,10 +35,6 @@ export default {
     width: 33.33%;
     height: 100%;
     background-color: white;
-    border-right: 2px dashed #d1a177;
-}
-.contact-infomation:nth-child(3){
-    border: none;
 }
 .contact-infomation .contact-infomation-box{
     width: 100%;
