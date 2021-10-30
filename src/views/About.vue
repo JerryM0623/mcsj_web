@@ -27,7 +27,7 @@
                     “仰望星空•脚踏实地•做好门窗”是星佰汇门窗的信念与源动力，致力打造人们喜爱首选的中高端门窗品牌，打造绿色家居，构建理想生活，焕新人居生活体验是我们的使命，焕新是我们对生活极致追求的动力，用科技打造门窗最高等级的安全性能，成为门窗行业的标杆品牌，我们一直在路上。</p>
             </template>
             <template v-slot:carousel>
-                <swiper :options="swiperOptionForSummary" ref="mySwiperFoeSummary">
+                <swiper :options="swiperOptionForSummary" ref="mySwiperForSummary">
                     <swiper-slide v-for="item in summarySwiperList" :key="item.id">
                         <img style="width: 95%" class="swiper-image" :src="item.imgUrl" :alt="item.alt">
                     </swiper-slide>
