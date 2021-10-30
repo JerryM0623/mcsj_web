@@ -51,10 +51,11 @@ export default {
 
 <style scoped>
 .header{
+    width: 100%;
     height: 100px;
     background-color: #111e47;
-    position: relative;
-    z-index: 9999;
+    position: fixed;
+    z-index: 9;
 }
 .logo{
     position: absolute;

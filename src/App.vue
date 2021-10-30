@@ -53,10 +53,11 @@ a{
     clear: both;
     visibility: hidden;
 }
-
 .clearfix {
     zoom: 1;
 }
+
+/* amap 高德地图*/
 .label-box{
     width: 430px;
     font-size: 14px;
