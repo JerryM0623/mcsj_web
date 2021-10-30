@@ -40,6 +40,11 @@ const routes = [
     path: '/contact',
     name:'contact',
     component:() => import('@/views/Contact')
+  },
+  {
+    path:'/join',
+    name:'join',
+    component: () => import('@/views/Join')
   }
 ]
 
