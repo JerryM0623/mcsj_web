@@ -40,17 +40,11 @@ export default {
             type:Boolean,
             required:true
         }
-    },
-    mounted() {
-        this.dispatch('bdhewjbd',sdbqahjd)
     }
 }
 </script>
 
 <style scoped>
-/*.artical{*/
-/*    background-color: #f5f5f5;*/
-/*}*/
 .article-box{
     margin: 0 150px;
     padding: 90px 0;
@@ -81,6 +75,7 @@ export default {
 }
 .article-Carousel{
     margin-top: 40px;
+    /*height: 300px;*/
 }
 .article-grid{
     width: 100%;

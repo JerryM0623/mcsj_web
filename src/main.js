@@ -3,13 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// 引入vue-awesome-swiper
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-// swiper对应的css
-import 'swiper/dist/css/swiper.css'
-// 引用swiper
-Vue.use(VueAwesomeSwiper)
-
 // 引入axios
 import axios from "axios";
 // 全局注册axios
