@@ -29,9 +29,7 @@ export default {
     },
     mounted() {
         const that = this
-        setTimeout(() => {
-            new Swiper(`.${that.jerrySwiperId}`,that.jerrySwiperOption)
-        },200)
+        new Swiper(`.${that.jerrySwiperId}`,that.jerrySwiperOption)
     }
 }
 </script>
