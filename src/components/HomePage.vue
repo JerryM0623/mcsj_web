@@ -38,7 +38,6 @@ export default {
             type:String
         },
         backgroundColor:{
-            required:true,
             type:String
         }
     }
@@ -52,7 +51,7 @@ h1{
 }
 .home-page{
     text-align: center;
-    padding: 0 150px;
+    padding: 0 150px 40px;
 }
 .line-box{
     padding-bottom: 5px;
