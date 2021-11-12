@@ -425,7 +425,8 @@ export default {
                 },
                 loop:false,
                 slidesPerView:3,
-                slidesPerGroup:3
+                slidesPerGroup:3,
+                spaceBetween:20
             },
             // 表示第四个文章节点的轮播图的配置
             courseJerrySwiperOption:{
@@ -493,7 +494,7 @@ export default {
     padding-bottom: 30px;
 }
 .summary-course-img{
-    width: 95%;
+    width: 100%;
 }
 
 /* 第四个节点的样式 */
