@@ -140,6 +140,18 @@
       </HomePage>
     </div>
     <!--        汇聚精英团队，打造卓越品牌-->
+    <div class="part6">
+      <HomePage
+        title="汇聚精英团队，打造卓越品牌"
+        titleColor="#000000"
+        smallTitle="同道同行，同行同享"
+        backgroundColor="#ffffff"
+      >
+        <template v-slot:home-page-content>
+          <img class="home-part6-img" src="@/assets/home/part6/img1.jpg" alt="homePart6Pic001">
+        </template>
+      </HomePage>
+    </div>
     <!--        专业团队助您赢在终端-->
     <!--        产品展示-->
     <!--        媒体资讯-->
@@ -520,8 +532,9 @@ export default {
 .part4 .swiper-slide ul li img {
   height: 99%;
 }
-/* part5 */
-.part5 .home-part5-img{
+/* part5 part6*/
+.part5 .home-part5-img,
+.part6 .home-part6-img{
   width: 100%;
 }
 </style>
