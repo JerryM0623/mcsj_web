@@ -127,6 +127,7 @@
       </HomePage>
     </div>
     <!--        中国十大家装门窗品牌-->
+
     <!--        汇聚精英团队，打造卓越品牌-->
     <!--        专业团队助您赢在终端-->
     <!--        产品展示-->
@@ -303,7 +304,11 @@ export default {
         },
       ],
       // part4的swiper属性配置
-      homePart4JerrySwiperOption: {},
+      homePart4JerrySwiperOption: {
+        pagination:{
+          el:'.swiper-pagination'
+        }
+      },
       // part4的swiper内容配置
       homePart4JerrySwiperDataList: [
         {
@@ -443,6 +448,7 @@ export default {
 }
 .part3 .swiper-container {
   padding-bottom: 40px;
+  margin-top: 70px;
 }
 .home-part3-swiper-img {
   width: 100%;
@@ -482,6 +488,9 @@ export default {
   display: block;
 }
 /* part4 */
+.part4 .swiper-container{
+  margin-top: 70px;
+}
 .part4 .swiper-slide ul {
   display: flex;
   flex-wrap: wrap;

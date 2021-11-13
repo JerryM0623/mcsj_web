@@ -52,6 +52,7 @@ h1{
 .home-page{
     text-align: center;
     padding: 0 150px 40px;
+    min-height: 650px;
 }
 .line-box{
     padding-bottom: 5px;
