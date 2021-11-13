@@ -135,7 +135,11 @@
         backgroundColor="#0f1e47"
       >
         <template v-slot:home-page-content>
-          <img class="home-part5-img" src="@/assets/home/part5/img1.jpg" alt="homePart5Pic001">
+          <img
+            class="home-part5-img"
+            src="@/assets/home/part5/img1.jpg"
+            alt="homePart5Pic001"
+          />
         </template>
       </HomePage>
     </div>
@@ -148,11 +152,56 @@
         backgroundColor="#ffffff"
       >
         <template v-slot:home-page-content>
-          <img class="home-part6-img" src="@/assets/home/part6/img1.jpg" alt="homePart6Pic001">
+          <img
+            class="home-part6-img"
+            src="@/assets/home/part6/img1.jpg"
+            alt="homePart6Pic001"
+          />
         </template>
       </HomePage>
     </div>
     <!--        专业团队助您赢在终端-->
+    <div class="part7">
+      <HomePage
+        title="专业团队助您赢在终端"
+        titleColor="#d1a177"
+        smallTitle="因为很专注，所以更专业"
+        backgroundColor="#0f1e47"
+      >
+        <template v-slot:home-page-content>
+          <JerrySwiper
+            :jerrySwiperOption="homePart7JerrySwiperOption"
+            jerrySwiperId="home-part7-swiper"
+          >
+            <template v-slot:jerry-swiper-slides>
+              <div
+                v-for="item in homePart5JerrySwiperDataList"
+                :key="item.id"
+                class="swiper-slide"
+              >
+                <div class="home-part7-swiper-slide-left">
+                  <div class="top-box">
+                    <div class="icon-box">
+                      <img src="@/assets/home/part7/img1.png" />
+                    </div>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.smallTitle }}</p>
+                  </div>
+                  <div class="bottom-box">
+                    <h3>课程：</h3>
+                    <p>{{ item.classes }}</p>
+                    <router-link to="/business"><span>MORE+</span></router-link>
+                  </div>
+                </div>
+                <div class="home-part7-swiper-slide-right">
+                  <img class="show-pic" :src="item.imgUrl" :alt="item.alt" />
+                </div>
+              </div>
+            </template>
+          </JerrySwiper>
+        </template>
+      </HomePage>
+    </div>
     <!--        产品展示-->
     <!--        媒体资讯-->
     <!--        页脚-->
@@ -174,7 +223,7 @@ export default {
   },
   data() {
     return {
-      // part1的swiper的配置属性
+      // part1的swiper的配置对象
       homePart1JerrySwiperOption: {
         autoplay: {
           delay: 3000,
@@ -263,7 +312,7 @@ export default {
           describe: "24小时一站式贴心服务",
         },
       ],
-      // part3的swiper的配置属性
+      // part3的swiper的配置对象
       homePart3JerrySwiperOption: {
         autoplay: {
           delay: 2500,
@@ -326,11 +375,11 @@ export default {
             "星佰汇门窗对经销商进行严格的市场保护和配合，星佰汇门窗助您门店纯利润增长20%以上：“价”临天下，舍我其谁！震撼行业的价格优势使您的门店在市场竞争中脱颖而出、决胜终端！",
         },
       ],
-      // part4的swiper属性配置
+      // part4的swiper配置对象
       homePart4JerrySwiperOption: {
-        pagination:{
-          el:'.swiper-pagination'
-        }
+        pagination: {
+          el: ".swiper-pagination",
+        },
       },
       // part4的swiper内容配置
       homePart4JerrySwiperDataList: [
@@ -408,6 +457,23 @@ export default {
           id: "homePart4JerrySwiperDataList015",
           imgUrl: require("@/assets/home/part4/img15.jpg"),
           alt: "homePart4JerrySwiperDataList015",
+        },
+      ],
+      // part7的swiper配置对象
+      homePart7JerrySwiperOption: {
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      },
+      homePart5JerrySwiperDataList: [
+        {
+          id: "homePart5JerrySwiperDataList001",
+          imgUrl: require("@/assets/home/part7/img2.jpg"),
+          alt: "homePart5JerrySwiperDataList001",
+          title: "战狼团队",
+          smallTitle: "战狼团队",
+          classes:
+            "《领袖的风采》、《完美狼团队》、《细节决定成败》、《精细化生产》、《赢销为王》、《企业发展三驾马车》",
         },
       ],
     };
@@ -511,7 +577,7 @@ export default {
   display: block;
 }
 /* part4 */
-.part4 .swiper-container{
+.part4 .swiper-container {
   margin-top: 70px;
 }
 .part4 .swiper-slide ul {
@@ -534,7 +600,87 @@ export default {
 }
 /* part5 part6*/
 .part5 .home-part5-img,
-.part6 .home-part6-img{
+.part6 .home-part6-img {
   width: 100%;
+}
+/* part7 */
+.part7 .swiper-container {
+  height: 500px;
+  padding-bottom: 50px;
+}
+.part7 .swiper-slide {
+  border: 1px solid white;
+  display: flex;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left {
+  width: 70%;
+  height: 100%;
+  padding: 40px 80px 40px 30px;
+  text-align: left;
+  color: white;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .top-box {
+  border-bottom: 1px solid #666666;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .top-box .icon-box {
+  height: 40px;
+  margin-bottom: 20px;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .top-box .icon-box img {
+  height: 100%;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .top-box h3 {
+  color: #d1a177;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding-left: 20px;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .top-box p {
+  font-size: 14px;
+  padding-left: 20px;
+  color: #808080;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .bottom-box {
+  padding-left: 20px;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .bottom-box h3 {
+  color: #d1a177;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .bottom-box p {
+  color: #808080;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 50px;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .bottom-box a {
+  border: 1px solid white;
+  padding: 10px 20px;
+  transition: all 0.2s;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .bottom-box a:hover {
+  background-color: #d1a177;
+  color: black;
+  border: 1px solid #d1a177;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-left .bottom-box a span {
+  letter-spacing: 3px;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-right {
+  position: relative;
+  width: 30%;
+  background-color: #d1a177;
+}
+.part7 .swiper-slide .home-part7-swiper-slide-right .show-pic {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100%;
+  height: 100%;
 }
 </style>
