@@ -127,7 +127,18 @@
       </HomePage>
     </div>
     <!--        中国十大家装门窗品牌-->
-
+    <div class="part5">
+      <HomePage
+        title="中国十大家装门窗品牌"
+        titleColor="#d1a177"
+        smallTitle="星佰汇门窗，在“中国十大铝合金门窗品牌”、“中国十大家装品牌”、“中国著名门窗品牌”的评选中遥遥领先，成功斩获这三项大奖。"
+        backgroundColor="#0f1e47"
+      >
+        <template v-slot:home-page-content>
+          <img class="home-part5-img" src="@/assets/home/part5/img1.jpg" alt="homePart5Pic001">
+        </template>
+      </HomePage>
+    </div>
     <!--        汇聚精英团队，打造卓越品牌-->
     <!--        专业团队助您赢在终端-->
     <!--        产品展示-->
@@ -508,5 +519,9 @@ export default {
 }
 .part4 .swiper-slide ul li img {
   height: 99%;
+}
+/* part5 */
+.part5 .home-part5-img{
+  width: 100%;
 }
 </style>
