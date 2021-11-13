@@ -507,6 +507,6 @@ export default {
   border: 1px solid black;
 }
 .part4 .swiper-slide ul li img {
-  height: 100%;
+  height: 99%;
 }
 </style>
