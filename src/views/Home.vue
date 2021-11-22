@@ -175,7 +175,7 @@
           >
             <template v-slot:jerry-swiper-slides>
               <div
-                v-for="item in homePart5JerrySwiperDataList"
+                v-for="item in homePart7JerrySwiperDataList"
                 :key="item.id"
                 class="swiper-slide"
               >
@@ -203,7 +203,29 @@
       </HomePage>
     </div>
     <!--        产品展示-->
+    <div class="part8">
+      <HomePage
+        title="产品展示"
+        titleColor="black"
+        smallTitle="千锤百炼 细节决定产品质量"
+        backgroundColor="white"
+      >
+        <template v-slot:home-page-content>
+          <div class="part8-box">
+            <div v-for="item in homePart8DataList" :key="item.id" class="part8-main-box" :style="{backgroundImage:`url('${item.backgroundImageUrl}')`}">
+              <div class="part8-icon-box"><img :src="item.iconUrl" :alt="item.alt"></div>
+              <div class="part8-describe-box">
+                <p>{{ item.describeChinese }}</p>
+                <p>{{ item.describeEnglish }}</p>
+              </div>
+              <div class="part8-buttom-box"><router-link to="/product">查看更多+</router-link></div>
+            </div>
+          </div>
+        </template>
+      </HomePage>
+    </div>
     <!--        媒体资讯-->
+    <div class="part9"></div>
     <!--        页脚-->
     <Footer></Footer>
   </div>
@@ -465,7 +487,8 @@ export default {
           el: ".swiper-pagination",
         },
       },
-      homePart5JerrySwiperDataList: [
+      // part7的swiper数据列表
+      homePart7JerrySwiperDataList: [
         {
           id: "homePart5JerrySwiperDataList001",
           imgUrl: require("@/assets/home/part7/img2.jpg"),
@@ -476,6 +499,33 @@ export default {
             "《领袖的风采》、《完美狼团队》、《细节决定成败》、《精细化生产》、《赢销为王》、《企业发展三驾马车》",
         },
       ],
+      // part8的数据列表
+      homePart8DataList:[
+        {
+          id:'homePart8DataList001',
+          backgroundImageUrl:require('@/assets/home/part8/pic1.jpg'),
+          iconUrl:require('@/assets/home/part8/icon1.png'),
+          alt:'homePart8DataList001',
+          describeChinese:'窗系列',
+          describeEnglish:'Window Series'
+        },
+        {
+          id:'homePart8DataList002',
+          backgroundImageUrl:require('@/assets/home/part8/pic2.jpg'),
+          iconUrl:require('@/assets/home/part8/icon2.png'),
+          alt:'homePart8DataList002',
+          describeChinese:'门系列',
+          describeEnglish:'Door Series'
+        },
+        {
+          id:'homePart8DataList003',
+          backgroundImageUrl:require('@/assets/home/part8/pic3.jpg'),
+          iconUrl:require('@/assets/home/part8/icon3.png'),
+          alt:'homePart8DataList003',
+          describeChinese:'房系列',
+          describeEnglish:'House Series'
+        },
+      ]
     };
   },
 };
@@ -609,7 +659,7 @@ export default {
   padding-bottom: 50px;
 }
 .part7 .swiper-slide {
-  border: 1px solid white;
+  border: 1px solid #384568;
   display: flex;
 }
 .part7 .swiper-slide .home-part7-swiper-slide-left {
@@ -682,5 +732,72 @@ export default {
   right: 20px;
   width: 100%;
   height: 100%;
+}
+/* part8 */
+.part8 .part8-box{
+  height: 550px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.part8 .part8-box .part8-main-box{
+  position: relative;
+  width: 33.333333%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.part8 .part8-box .part8-main-box::before{
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .4);
+  transition: all .3s;
+  z-index: 1;
+}
+/* .part8 .part8-box .part8-main-box:nth-child(1){
+  background-image: url('../assets/home/part8/pic1.jpg');
+}
+.part8 .part8-box .part8-main-box:nth-child(2){
+  background-image: url('../assets/home/part8/pic2.jpg');
+}
+.part8 .part8-box .part8-main-box:nth-child(3){
+  background-image: url('../assets/home/part8/pic3.jpg');
+} */
+.part8 .part8-box .part8-main-box:hover::before{
+  background-color: rgba(0, 0, 0, .2);
+}
+.part8 .part8-box .part8-main-box div{
+  z-index: 2;
+}
+.part8 .part8-box .part8-main-box .part8-icon-box{
+  width: 50px;
+  height: 50px;
+}
+.part8 .part8-box .part8-main-box .part8-icon-box img{
+  width: 100%;
+  height: 100%;
+}
+.part8 .part8-box .part8-main-box .part8-describe-box{
+  margin: 20px 0;
+  color: white;
+}
+.part8 .part8-box .part8-main-box .part8-buttom-box{
+  padding: 10px 20px;
+  background-color: #d1a177;
+  border-radius: 50px;
+}
+.part8 .part8-box .part8-main-box .part8-buttom-box a{
+  color: white;
 }
 </style>
