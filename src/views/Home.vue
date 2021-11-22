@@ -225,7 +225,43 @@
       </HomePage>
     </div>
     <!--        媒体资讯-->
-    <div class="part9"></div>
+    <div class="part9">
+      <HomePage
+        title="媒体资讯"
+        titleColor="black"
+        smallTitle="实时关注行业发展趋势"
+        backgroundColor="white"
+      >
+        <template v-slot:home-page-content>
+          <div class="part9-box">
+            <div class="part9-bottom-box"></div>
+            <div class="part9-news-box">
+              <router-link to="/consult">
+                <NewsItem
+                  newsDate='11-22'
+                  newsTitle='星佰汇新版VI形象已盛大发布'
+                  newsText='2019我们共同见证这一年我们依然在工作上挥汗如雨或者像候鸟一样满世界飞翔，无论有多忙走得有多远却始终被一种力量牵绊，被一种惦记温暖，被一种责任召唤，感谢全国的经销商家人们一路相伴2020我们踌躇满志，蓄势待发 我们新的VI形象新的口号响起新的梦想集结即将起航！'
+                ></NewsItem>
+              </router-link>
+              <router-link to="/consult">
+                <NewsItem
+                  newsDate='11-22'
+                  newsTitle='星佰汇新版VI形象已盛大发布'
+                  newsText='2019我们共同见证这一年我们依然在工作上挥汗如雨或者像候鸟一样满世界飞翔，无论有多忙走得有多远却始终被一种力量牵绊，被一种惦记温暖，被一种责任召唤，感谢全国的经销商家人们一路相伴2020我们踌躇满志，蓄势待发 我们新的VI形象新的口号响起新的梦想集结即将起航！'
+                ></NewsItem>
+              </router-link>
+              <router-link to="/consult">
+                <NewsItem
+                  newsDate='11-22'
+                  newsTitle='星佰汇新版VI形象已盛大发布'
+                  newsText='2019我们共同见证这一年我们依然在工作上挥汗如雨或者像候鸟一样满世界飞翔，无论有多忙走得有多远却始终被一种力量牵绊，被一种惦记温暖，被一种责任召唤，感谢全国的经销商家人们一路相伴2020我们踌躇满志，蓄势待发 我们新的VI形象新的口号响起新的梦想集结即将起航！'
+                ></NewsItem>
+              </router-link>
+            </div>
+          </div>
+        </template>
+      </HomePage>
+    </div>
     <!--        页脚-->
     <Footer></Footer>
   </div>
@@ -234,7 +270,8 @@
 <script>
 import HomePage from "@/components/HomePage";
 import Footer from "@/components/Footer";
-import JerrySwiper from "../components/JerrySwiper";
+import JerrySwiper from "@/components/JerrySwiper";
+import NewsItem from '@/components/NewsItem';
 
 export default {
   name: "Home",
@@ -242,6 +279,7 @@ export default {
     HomePage,
     Footer,
     JerrySwiper,
+    NewsItem
   },
   data() {
     return {
@@ -532,7 +570,7 @@ export default {
 </script>
 
 <style scoped>
-/* part1的swiper配置 */
+/* part1 */
 .home-part1-swiper-img {
   width: 100%;
 }
@@ -765,15 +803,6 @@ export default {
   transition: all .3s;
   z-index: 1;
 }
-/* .part8 .part8-box .part8-main-box:nth-child(1){
-  background-image: url('../assets/home/part8/pic1.jpg');
-}
-.part8 .part8-box .part8-main-box:nth-child(2){
-  background-image: url('../assets/home/part8/pic2.jpg');
-}
-.part8 .part8-box .part8-main-box:nth-child(3){
-  background-image: url('../assets/home/part8/pic3.jpg');
-} */
 .part8 .part8-box .part8-main-box:hover::before{
   background-color: rgba(0, 0, 0, .2);
 }
@@ -799,5 +828,15 @@ export default {
 }
 .part8 .part8-box .part8-main-box .part8-buttom-box a{
   color: white;
+}
+/* part9 */
+.part9 .part9-box .part9-news-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.part9 .part9-box .part9-news-box a{
+  width: 30%;
 }
 </style>
