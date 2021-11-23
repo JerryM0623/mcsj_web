@@ -273,7 +273,8 @@ import Footer from "@/components/Footer";
 import JerrySwiper from "@/components/JerrySwiper";
 import NewsItem from '@/components/NewsItem';
 
-import homeData from '@/data/home.js'
+import homeDataObj from '@/data/home.js'
+import homeOptionObj from '@/option/home.js'
 
 export default {
   name: "Home",
@@ -287,44 +288,13 @@ export default {
     return {
       jerrySwiperOptions:{
         // part1的swiper的配置对象
-        homePart1JerrySwiperOption: {
-          autoplay: {
-            delay: 3000,
-          },
-          loop: true,
-          speed: 500,
-          pagination: {
-            el: ".swiper-pagination",
-          },
-          observe:true
-        },
+        homePart1JerrySwiperOption: {},
         // part3的swiper的配置对象
-        homePart3JerrySwiperOption: {
-          autoplay: {
-            delay: 2500,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-          },
-          loop: true,
-          slidesPerView: 3,
-          spaceBetween: 10,
-          observe:true
-        },
+        homePart3JerrySwiperOption: {},
         // part4的swiper配置对象
-        homePart4JerrySwiperOption: {
-          pagination: {
-            el: ".swiper-pagination",
-          },
-          observe:true
-        },
+        homePart4JerrySwiperOption: {},
         // part7的swiper配置对象
-        homePart7JerrySwiperOption: {
-          pagination: {
-            el: ".swiper-pagination",
-          },
-          observe:true
-        },
+        homePart7JerrySwiperOption: {},
       },
       homePartDataLists:{
         // part1的swiper的内容配置
@@ -345,8 +315,11 @@ export default {
     };
   },
   created(){
-    for(let item in homeData){
-      this.$set(this.homePartDataLists,item,homeData[item]);
+    for(let item in homeDataObj){
+      this.$set(this.homePartDataLists,item,homeDataObj[item]);
+    }
+    for(let item in homeOptionObj){
+      this.$set(this.jerrySwiperOptions,item,homeOptionObj[item]);
     }
   }
 };
