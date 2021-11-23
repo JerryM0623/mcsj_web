@@ -3,11 +3,9 @@
         <!-- 导航栏下方的图片 -->
         <Banner>
             <template>
-                <img src="../assets/banner.jpg" alt="轮播图"/>
+                <img src="../assets/banner.jpg" alt="轮播图" />
             </template>
         </Banner>
-
-
 
         <!-- 图片下方的页面子菜单 -->
         <SubMenu>
@@ -15,14 +13,14 @@
                 <ul>
                     <li @click.prevent="customAnchor('#summary')">公司简介</li>
                     <li @click.prevent="customAnchor('#idea')">公司理念</li>
-                    <li @click.prevent="customAnchor('#introduce')">品牌介绍</li>
+                    <li @click.prevent="customAnchor('#introduce')">
+                        品牌介绍
+                    </li>
                     <li @click.prevent="customAnchor('#course')">发展历程</li>
                     <li @click.prevent="customAnchor('#honor')">荣誉资质</li>
                 </ul>
             </template>
         </SubMenu>
-
-
 
         <!-- 第一个文章 -->
         <Artical
@@ -42,17 +40,27 @@
                 </p>
             </template>
             <template v-slot:carousel>
-                <JerrySwiper jerry-swiper-id="summery" class="summary-course-jerry-swiper" :jerry-swiper-option="firstJerrySwiperOption">
+                <JerrySwiper
+                    jerry-swiper-id="summery"
+                    class="summary-course-jerry-swiper"
+                    :jerry-swiper-option="aboutJerrrySwiperOptions.firstJerrySwiperOption"
+                >
                     <template v-slot:jerry-swiper-slides>
-                        <div v-for="item in summarySwiperList" :key="item.id" class="swiper-slide">
-                            <img class="summary-course-img" :src="item.imgUrl" :alt="item.alt">
+                        <div
+                            v-for="item in aboutSwiperDataList.summarySwiperList"
+                            :key="item.id"
+                            class="swiper-slide"
+                        >
+                            <img
+                                class="summary-course-img"
+                                :src="item.imgUrl"
+                                :alt="item.alt"
+                            />
                         </div>
                     </template>
                 </JerrySwiper>
             </template>
         </Artical>
-
-
 
         <!-- 第二个文章 -->
         <Artical
@@ -72,14 +80,12 @@
                 </p>
             </template>
             <template v-slot:grid>
-                <div v-for="grid in gridList" :key="grid.id" class="grid-box">
+                <div v-for="grid in aboutSwiperDataList.gridList" :key="grid.id" class="grid-box">
                     <h3>{{ grid.title }}</h3>
                     <p>{{ grid.text }}</p>
                 </div>
             </template>
         </Artical>
-
-
 
         <!-- 第三个文章 -->
         <Artical
@@ -96,7 +102,7 @@
                     星佰汇门窗（ＣＩＢＩＶＡ）是佛山市星际铝业有限公司南海星佰汇门窗分公司直属品牌，坐落于中国铝材之都——广东佛山，生产基地总面积50000多平方米，是一家集设计、研发、生产、销售、服务为一体的专业化、技术化门窗生产厂家。
                 </p>
                 <p>
-                    <img src="../assets/about/introduce/logo_big.png" alt=""/>
+                    <img src="../assets/about/introduce/logo_big.png" alt="" />
                 </p>
                 <h3>公司业务</h3>
                 <p>
@@ -140,14 +146,12 @@
                 <p>全国消费者放心满意品牌</p>
                 <p>门窗协会理事单位</p>
                 <p>
-                    <img src="../assets/about/introduce/315.png" alt=""/>
-                    <img src="../assets/about/introduce/2017.png" alt=""/>
-                    <img src="../assets/about/introduce/changwu.png" alt=""/>
+                    <img src="../assets/about/introduce/315.png" alt="" />
+                    <img src="../assets/about/introduce/2017.png" alt="" />
+                    <img src="../assets/about/introduce/changwu.png" alt="" />
                 </p>
             </template>
         </Artical>
-
-
 
         <!-- 第四个文章 -->
         <Artical
@@ -159,19 +163,29 @@
             <template v-slot:title><p id="course">发展历程</p></template>
             <template v-slot:small-title><p>DEVELOPMENT PATH</p></template>
             <template v-slot:carousel>
-                <JerrySwiper jerry-swiper-id="course" class="course-jerry-swiper" :jerry-swiper-option="courseJerrySwiperOption">
+                <JerrySwiper
+                    jerry-swiper-id="course"
+                    class="course-jerry-swiper"
+                    :jerry-swiper-option="aboutJerrrySwiperOptions.courseJerrySwiperOption"
+                >
                     <template v-slot:jerry-swiper-slides>
-                        <div v-for="item in courseSwiperList" :key="item.id" class="course-swiper-slide swiper-slide">
-                            <img class="summary-course-img" :src="item.imgUrl" :alt="item.alt">
-                            <p class="course-year">{{item.year}}</p>
-                            <p class="course-text">{{item.text}}</p>
+                        <div
+                            v-for="item in aboutSwiperDataList.courseSwiperList"
+                            :key="item.id"
+                            class="course-swiper-slide swiper-slide"
+                        >
+                            <img
+                                class="summary-course-img"
+                                :src="item.imgUrl"
+                                :alt="item.alt"
+                            />
+                            <p class="course-year">{{ item.year }}</p>
+                            <p class="course-text">{{ item.text }}</p>
                         </div>
                     </template>
                 </JerrySwiper>
             </template>
         </Artical>
-
-
 
         <!-- 第五个文章 -->
         <Artical
@@ -183,19 +197,26 @@
             <template v-slot:title><p id="honor">荣誉资质</p></template>
             <template v-slot:small-title><p>HONOR</p></template>
             <template v-slot:carousel>
-                <JerrySwiper class="honor-jerry-swiper" jerry-swiper-id="honor" :jerry-swiper-option="honorJerrySwiperOption">
+                <JerrySwiper
+                    class="honor-jerry-swiper"
+                    jerry-swiper-id="honor"
+                    :jerry-swiper-option="aboutJerrrySwiperOptions.honorJerrySwiperOption"
+                >
                     <template v-slot:jerry-swiper-slides>
                         <div class="swiper-slide">
                             <ul class="honor-flex">
-                                <li v-for="item in honorSWiperList" :key="item.id"><img :src="item.imgUrl" :alt="item.alt"></li>
+                                <li
+                                    v-for="item in aboutSwiperDataList.honorSWiperList"
+                                    :key="item.id"
+                                >
+                                    <img :src="item.imgUrl" :alt="item.alt" />
+                                </li>
                             </ul>
                         </div>
                     </template>
                 </JerrySwiper>
             </template>
         </Artical>
-
-
 
         <!-- 页脚 -->
         <Footer></Footer>
@@ -208,6 +229,9 @@ import Footer from "@/components/Footer";
 import SubMenu from "@/components/SubMenu";
 import Artical from "@/components/Artical";
 import JerrySwiper from "../components/JerrySwiper";
+
+import aboutDataObj from '@/data/about.js'
+import aboutOptionObj from '@/option/about.js'
 
 export default {
     name: "About",
@@ -222,230 +246,36 @@ export default {
         Footer,
         SubMenu,
         Artical,
-        JerrySwiper
+        JerrySwiper,
     },
     data() {
         return {
-            // summary轮播图的信息
-            summarySwiperList: [
-                {
-                    id: "001",
-                    imgUrl: require("@/assets/about/swiper-summary/course1.jpg"),
-                    alt: "轮播图1",
-                },
-                {
-                    id: "002",
-                    imgUrl: require("@/assets/about/swiper-summary/course2.jpg"),
-                    alt: "轮播图2",
-                },
-                {
-                    id: "003",
-                    imgUrl: require("@/assets/about/swiper-summary/course3.jpg"),
-                    alt: "轮播图3",
-                },
-                {
-                    id: "004",
-                    imgUrl: require("@/assets/about/swiper-summary/course4.jpg"),
-                    alt: "轮播图4",
-                },
-                {
-                    id: "005",
-                    imgUrl: require("@/assets/about/swiper-summary/course5.jpg"),
-                    alt: "轮播图5",
-                },
-                {
-                    id: "006",
-                    imgUrl: require("@/assets/about/swiper-summary/course6.jpg"),
-                    alt: "轮播图6",
-                },
-                {
-                    id: "007",
-                    imgUrl: require("@/assets/about/swiper-summary/course7.jpg"),
-                    alt: "轮播图7",
-                },
-                {
-                    id: "008",
-                    imgUrl: require("@/assets/about/swiper-summary/course8.jpg"),
-                    alt: "轮播图8",
-                },
-                {
-                    id: "009",
-                    imgUrl: require("@/assets/about/swiper-summary/course9.jpg"),
-                    alt: "轮播图9",
-                },
-            ],
-            // course轮播图数据
-            courseSwiperList: [
-                {
-                    id: "001",
-                    imgUrl: require("@/assets/about/swiper-course/lunbo1.jpg"),
-                    alt: "轮播图1",
-                    year: "1999年",
-                    text: "7月董事长梁活荣在佛山澜石开设第一家门厂，厂房面积360平方米；同年10月扩充2000平方米新厂，主营铝合金卫生间门及塑钢门。",
-                },
-                {
-                    id: "002",
-                    imgUrl: require("@/assets/about/swiper-course/lunbo2.jpg"),
-                    alt: "轮播图2",
-                    year: "2002年",
-                    text: "在松厦工业区宏图路扩建700平方米厂房，生产与销售铝合金推拉门、吊趟门、卫生间门、塑钢门。",
-                },
-                {
-                    id: "003",
-                    imgUrl: require("@/assets/about/swiper-course/lunbo3.jpg"),
-                    alt: "轮播图3",
-                    year: "2004年",
-                    text: "在松厦工业区顺景路扩新厂面积22000平方米，生产与销售铝合金推拉门、吊趟门、卫生间门、塑钢门、折叠门。",
-                },
-                {
-                    id: "004",
-                    imgUrl: require("@/assets/about/swiper-course/lunbo4.jpg"),
-                    alt: "轮播图4",
-                    year: "2009年",
-                    text: "在官窑红沙工业区自建50000平方米新厂。即“星际铝业集团公司”主营：挤压铝材、喷涂与木纹加工，铝材在供应本厂成品门窗的同时开始对外销售。同年11月，顺景路门厂迁入红沙新厂。",
-                },
-                {
-                    id: "005",
-                    imgUrl: require("@/assets/about/swiper-course/lunbo5.jpg"),
-                    alt: "轮播图5",
-                    year: "2014年",
-                    text: "4月在官窑官抱路开设门窗第二分厂，厂房面积15000平方米。",
-                },
-                {
-                    id: "006",
-                    imgUrl: require("@/assets/about/swiper-course/lunbo6.jpg"),
-                    alt: "轮播图6",
-                    year: "2016年",
-                    text: "3月在松岗塘联工业区自建新厂房31000平方米，开设门窗第三分厂；同年7月正式投产，即“星佰汇门窗”，生产与销售阳光房、窗户、推拉门、吊趟门、平开门、折叠门等全系列铝合金门窗产品。",
-                },
-                {
-                    id: "007",
-                    imgUrl: require("@/assets/about/swiper-course/lunbo7.jpg"),
-                    alt: "轮播图7",
-                    year: "2017年",
-                    text: "3月在狮山北工业区自建37000平方米新厂，即门窗第一分场扩建的新厂房，同年5月正式投产。",
-                },
-                {
-                    id: "008",
-                    imgUrl: require("@/assets/about/swiper-course/lunbo8.jpg"),
-                    alt: "轮播图8",
-                    year: "2018年",
-                    text: "1月在红沙工业区铝材总厂扩建窗户阳光房新厂24000平方米，同年5月正式投产。",
-                },
-                {
-                    id: "009",
-                    imgUrl: require("@/assets/about/swiper-course/lunbo9.jpg"),
-                    alt: "轮播图9",
-                    year: "2019年",
-                    text: "产品更丰富完善，品牌形象定位、展厅全面调整升级。",
-                },
-            ],
-            // honor轮播图数据
-            honorSWiperList: [
-                {
-                    id: "001",
-                    imgUrl: require("@/assets/about/swiper-honor/lunbo1.jpg"),
-                    alt: "轮播图1",
-                },
-                {
-                    id: "002",
-                    imgUrl: require("@/assets/about/swiper-honor/lunbo2.jpg"),
-                    alt: "轮播图2",
-                },
-                {
-                    id: "003",
-                    imgUrl: require("@/assets/about/swiper-honor/lunbo3.jpg"),
-                    alt: "轮播图3",
-                },
-                {
-                    id: "004",
-                    imgUrl: require("@/assets/about/swiper-honor/lunbo4.jpg"),
-                    alt: "轮播图4",
-                },
-                {
-                    id: "005",
-                    imgUrl: require("@/assets/about/swiper-honor/lunbo5.jpg"),
-                    alt: "轮播图5",
-                },
-                {
-                    id: "006",
-                    imgUrl: require("@/assets/about/swiper-honor/lunbo6.jpg"),
-                    alt: "轮播图6",
-                },
-            ],
-            // idea表格数据
-            gridList: [
-                {
-                    id: "001",
-                    title: "企业使命",
-                    text: "星福万家·构建和谐安宁的家居生活",
-                },
-                {
-                    id: "002",
-                    title: "企业愿景",
-                    text: "成为专业造门窗领跑者·造就百年门业品牌",
-                },
-                {
-                    id: "003",
-                    title: "事业宗旨",
-                    text: "为客户创造价值·助员工安居乐业·保企业健康发展",
-                },
-                {
-                    id: "004",
-                    title: "产品观",
-                    text: "人品决定产品·品质决定市场·信誉赢得未来",
-                },
-                {
-                    id: "005",
-                    title: "客户观",
-                    text: "客户就是“衣食父母”",
-                },
-                {
-                    id: "006",
-                    title: "团队观",
-                    text: "团结协作·和谐奋进·成就精",
-                },
-                {
-                    id: "007",
-                    title: "工作作风",
-                    text: "认真务实•行动迅速•保证结果",
-                },
-                {
-                    id: "008",
-                    title: "为人观",
-                    text: "乐于付出·勇于担当·真诚感恩",
-                },
-            ],
-
-
-            // 表示第一个文章节点的轮播图的配置
-            firstJerrySwiperOption: {
-                pagination:{
-                    el:'.swiper-pagination'
-                },
-                loop:false,
-                slidesPerView:3,
-                slidesPerGroup:3,
-                spaceBetween:20
+            aboutSwiperDataList: {
+                // summary轮播图的信息
+                summarySwiperList: [],
+                // course轮播图数据
+                courseSwiperList: [],
+                // honor轮播图数据
+                honorSWiperList: [],
+                // idea表格数据
+                gridList: [],
             },
-            // 表示第四个文章节点的轮播图的配置
-            courseJerrySwiperOption:{
-                pagination:{
-                    el:'.swiper-pagination'
-                },
-                loop:false,
-                slidesPerView:3,
-                slidesPerGroup:3
+            aboutJerrrySwiperOptions: {
+                // 表示第一个文章节点的轮播图的配置
+                firstJerrySwiperOption: {},
+                // 表示第四个文章节点的轮播图的配置
+                courseJerrySwiperOption: {},
+                // 表示第五个文章节点的轮播图的配置
+                honorJerrySwiperOption: {},
             },
-            // 表示第五个文章节点的轮播图的配置
-            honorJerrySwiperOption:{
-                pagination:{
-                    el:'.swiper-pagination'
-                },
-                loop:false,
-                slidesPerView:1,
-                slidesPerGroup:1
-            }
+        };
+    },
+    created(){
+        for(let item in aboutDataObj){
+            this.$set(this.aboutSwiperDataList,item,aboutDataObj[item])
+        }
+        for(let item in aboutOptionObj){
+            this.$set(this.aboutJerrrySwiperOptions,item,aboutOptionObj[item])
         }
     }
 };
@@ -490,50 +320,50 @@ export default {
 }
 
 /* 用于控制第一个文章节点的轮播图 */
-.summary-course-jerry-swiper{
+.summary-course-jerry-swiper {
     padding-bottom: 30px;
 }
-.summary-course-img{
+.summary-course-img {
     width: 100%;
 }
 
 /* 第四个节点的样式 */
-.course-swiper-slide{
+.course-swiper-slide {
     padding: 0 20px;
     border-right: 2px solid #d1a177;
     min-height: 450px;
 }
-.course-jerry-swiper{
+.course-jerry-swiper {
     padding-bottom: 50px;
 }
-.course-year{
+.course-year {
     font-weight: 700;
     font-size: 18px;
     color: #d1a177;
     margin: 10px 0;
 }
-.course-text{
+.course-text {
     color: #808080;
     letter-spacing: 2px;
     line-height: 2;
 }
 
 /* 第五个文章的节点 */
-.honor-jerry-swiper{
+.honor-jerry-swiper {
     padding-bottom: 30px;
 }
-.honor-flex{
+.honor-flex {
     display: flex;
     /*flex-direction: column;*/
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-.honor-flex li{
+.honor-flex li {
     width: 33.333%;
     margin-bottom: 16px;
 }
-.honor-flex li img{
+.honor-flex li img {
     width: 90%;
 }
 </style>
