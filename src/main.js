@@ -3,10 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// 引入axios
-import axios from "axios";
-// 全局注册axios
-Vue.prototype.$axios = axios
+// 全局注册封装之后的axios
+import api from './api'
+Vue.prototype.$api = api
 
 import AmapVue from '@amap/amap-vue';
 
