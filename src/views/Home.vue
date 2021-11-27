@@ -7,17 +7,18 @@
                 :jerry-swiper-option="
                     jerrySwiperOptions.homePart1JerrySwiperOption
                 "
+                v-if="homePartDataLists.homePart1JerrySwiperDataList.length > 0"
             >
                 <template v-slot:jerry-swiper-slides>
                     <div
                         v-for="item in homePartDataLists.homePart1JerrySwiperDataList"
-                        :key="item.id"
+                        :key="item.piUid"
                         class="swiper-slide"
                     >
                         <img
                             class="home-part1-swiper-img"
-                            :src="item.imgUrl"
-                            :alt="item.alt"
+                            :src="item.piImg"
+                            :alt="item.piAlt"
                         />
                     </div>
                 </template>
@@ -283,25 +284,14 @@
                     <div class="part9-box">
                         <div class="part9-bottom-box"></div>
                         <div class="part9-news-box">
-                            <router-link to="/consult">
+                            <router-link to="/join" v-for="item in homePartDataLists.homePart9DataList" :key="item.miImgUid">
                                 <NewsItem
-                                    newsDate="11-22"
-                                    newsTitle="星佰汇新版VI形象已盛大发布"
-                                    newsText="2019我们共同见证这一年我们依然在工作上挥汗如雨或者像候鸟一样满世界飞翔，无论有多忙走得有多远却始终被一种力量牵绊，被一种惦记温暖，被一种责任召唤，感谢全国的经销商家人们一路相伴2020我们踌躇满志，蓄势待发 我们新的VI形象新的口号响起新的梦想集结即将起航！"
-                                ></NewsItem>
-                            </router-link>
-                            <router-link to="/consult">
-                                <NewsItem
-                                    newsDate="11-22"
-                                    newsTitle="星佰汇新版VI形象已盛大发布"
-                                    newsText="2019我们共同见证这一年我们依然在工作上挥汗如雨或者像候鸟一样满世界飞翔，无论有多忙走得有多远却始终被一种力量牵绊，被一种惦记温暖，被一种责任召唤，感谢全国的经销商家人们一路相伴2020我们踌躇满志，蓄势待发 我们新的VI形象新的口号响起新的梦想集结即将起航！"
-                                ></NewsItem>
-                            </router-link>
-                            <router-link to="/consult">
-                                <NewsItem
-                                    newsDate="11-22"
-                                    newsTitle="星佰汇新版VI形象已盛大发布"
-                                    newsText="2019我们共同见证这一年我们依然在工作上挥汗如雨或者像候鸟一样满世界飞翔，无论有多忙走得有多远却始终被一种力量牵绊，被一种惦记温暖，被一种责任召唤，感谢全国的经销商家人们一路相伴2020我们踌躇满志，蓄势待发 我们新的VI形象新的口号响起新的梦想集结即将起航！"
+                                    :isBorder="true"
+                                    backgroundColor="white"
+                                    :newsDate="item.miDate"
+                                    :newsTitle="item.title"
+                                    :newsText="item.introduce"
+                                    :newsImg="item.miImg"
                                 ></NewsItem>
                             </router-link>
                         </div>
@@ -333,6 +323,7 @@ export default {
     },
     data() {
         return {
+            // swiper配置
             jerrySwiperOptions: {
                 // part1的swiper的配置对象
                 homePart1JerrySwiperOption: {},
@@ -343,6 +334,7 @@ export default {
                 // part7的swiper配置对象
                 homePart7JerrySwiperOption: {},
             },
+            // swiper数据
             homePartDataLists: {
                 // part1的swiper的内容配置
                 homePart1JerrySwiperDataList: [],
@@ -358,17 +350,53 @@ export default {
                 homePart7JerrySwiperDataList: [],
                 // part8的数据列表
                 homePart8DataList: [],
+                // part9的数据列表
+                homePart9DataList:[]
             },
         };
     },
     created() {
-        for (let item in homeDataObj) {
-            this.$set(this.homePartDataLists, item, homeDataObj[item]);
-        }
-        for (let item in homeOptionObj) {
-            this.$set(this.jerrySwiperOptions, item, homeOptionObj[item]);
-        }
+        
     },
+    created(){
+        /**
+         * 引入home页面所有swiper的配置
+         */
+        for (let item in homeOptionObj) {
+            this.jerrySwiperOptions[item] = homeOptionObj[item];
+        }
+        /**
+         * 引入home页面所有swiper的数据
+         */
+        for (let item in homeDataObj) {
+            this.homePartDataLists[item] = homeDataObj[item];
+        }
+        /**
+         * 获取首页的轮播图数据
+         * method: get
+         * result: array
+         */
+        this.$api.home.getCarousel().then(result => {
+            // 赋值数据
+            this.homePartDataLists.homePart1JerrySwiperDataList = result
+        })
+        /**
+         * 获取首页底部三条news
+         * method: get
+         * result: Object
+         */
+        this.$api.home.getThreeNews(1,3).then(result => {
+            // 取出所需要的数据
+            const {data} = result
+            let newArr =[];
+            // 遍历更新日历
+            data.forEach((item,index) => {
+                newArr[index] = {...item,miDate:item.miDate.substring(5,10)}
+            })
+            // 赋值数据
+            this.homePartDataLists.homePart9DataList = newArr;
+        })
+    }
 };
 </script>
 

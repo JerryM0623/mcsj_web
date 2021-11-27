@@ -1,26 +1,26 @@
 // part1的swiper的内容配置
-const homePart1JerrySwiperDataList = [
-  {
-    id: "homePart1Pic001",
-    imgUrl: require("@/assets/home/part1/pic1.jpg"),
-    alt: "轮播图1",
-  },
-  {
-    id: "homePart1Pic002",
-    imgUrl: require("@/assets/home/part1/pic2.jpg"),
-    alt: "轮播图2",
-  },
-  {
-    id: "homePart1Pic003",
-    imgUrl: require("@/assets/home/part1/pic3.jpg"),
-    alt: "轮播图3",
-  },
-  {
-    id: "homePart1Pic004",
-    imgUrl: require("@/assets/home/part1/pic4.jpg"),
-    alt: "轮播图4",
-  },
-]
+// const homePart1JerrySwiperDataList = [
+//   {
+//     id: "homePart1Pic001",
+//     imgUrl: require("@/assets/home/part1/pic1.jpg"),
+//     alt: "轮播图1",
+//   },
+//   {
+//     id: "homePart1Pic002",
+//     imgUrl: require("@/assets/home/part1/pic2.jpg"),
+//     alt: "轮播图2",
+//   },
+//   {
+//     id: "homePart1Pic003",
+//     imgUrl: require("@/assets/home/part1/pic3.jpg"),
+//     alt: "轮播图3",
+//   },
+//   {
+//     id: "homePart1Pic004",
+//     imgUrl: require("@/assets/home/part1/pic4.jpg"),
+//     alt: "轮播图4",
+//   },
+// ]
 // part2的text数据
 const homePart2TextDataList = [
   { id: "homePart2TextDataList001", 
@@ -248,7 +248,7 @@ const homePart8DataList = [
 ]
 
 export default {
-  homePart1JerrySwiperDataList,
+  // homePart1JerrySwiperDataList,
   homePart2PicDataList,
   homePart2TextDataList,
   homePart3JerrySwiperDataList,

@@ -23,23 +23,7 @@ Axios.interceptors.response.use(response => {
   // 返回的 status 在200-300 之间
   return response.data;
 },error => {
-  if(error.response){
-    // 返回的status 不在200-300之间
-    switch(error.response.status){
-      case 404:
-        return {msg:'404 NOT Found'}
-      case 401:
-        return {msg:'401 NOT Login'};
-      case 403:
-        return {msg:'403 NOT Pass'};
-    }
-  }else{
-    // 无返回信息
-    if(!window.navigator.onLine){
-      return {msg:'当前客户端未联网，请联网后重试'};
-    }
-    return {msg:'当前服务器繁忙，请稍后重试'};
-  }
+  return error;
 })
 
 export default Axios;
