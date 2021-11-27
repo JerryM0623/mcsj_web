@@ -104,11 +104,13 @@ export default {
   -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
+
   /* 其余样式设置 */
   letter-spacing: 1.5px;
   line-height: 2;
   font-size: 14px;
   color: #808080;
+  height: 60px;
 }
 .news-box .news-box-bottom{
   margin-top: 10px;
