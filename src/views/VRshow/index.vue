@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer/index.vue";
 export default {
     name: "VRshow",
     components:{

@@ -10,7 +10,7 @@
                 </div>
                 <div class="right-box">
                     <div class="QRCode-box">
-                        <img src="../assets/QRCode.jpg" alt="二维码">
+                        <img src="@/assets/QRCode.jpg" alt="二维码">
                     </div>
                     <p>微信公众号</p>
                 </div>

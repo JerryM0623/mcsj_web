@@ -2,7 +2,7 @@
 <div class="business">
     <Banner>
         <template>
-            <img src="../assets/banner3.jpg" alt="轮播图">
+            <img src="@/assets/banner3.jpg" alt="轮播图">
         </template>
     </Banner>
     <SubMenu>
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import Banner from '@/components/Banner'
-import Footer from '@/components/Footer'
-import SubMenu from "@/components/SubMenu";
-import LectureItem from "@/components/LectureItem";
-import PageControl from "@/components/PageControl";
+import Banner from '@/components/Banner/index.vue'
+import Footer from '@/components/Footer/index.vue'
+import SubMenu from "@/components/SubMenu/index.vue";
+import LectureItem from "@/components/LectureItem/index.vue";
+import PageControl from "@/components/PageControl/index.vue";
 export default {
     name: "Business",
     props:{

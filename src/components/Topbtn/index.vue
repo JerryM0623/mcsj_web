@@ -1,6 +1,6 @@
 <template>
 <div v-show="isTopBtnShow" class="top-btn" @click="toTop">
-    <img src="../assets/top.jpg" alt="top">
+    <img src="@/assets/top.jpg" alt="top">
 </div>
 </template>
 

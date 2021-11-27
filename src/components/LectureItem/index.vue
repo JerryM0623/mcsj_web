@@ -2,7 +2,7 @@
     <div class="lecture-item">
         <div class="lecture-item-box">
             <div class="lecture-item-left-box">
-                <img src="../assets/business/lecturePic1.jpg" alt="战狼团队">
+                <img src="@/assets/business/lecturePic1.jpg" alt="战狼团队">
             </div>
             <div class="lecture-item-right-box">
                 <div class="top-box">

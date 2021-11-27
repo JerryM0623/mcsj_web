@@ -3,7 +3,7 @@
         <!-- 导航栏下方的图片 -->
         <Banner>
             <template>
-                <img src="../assets/banner.jpg" alt="轮播图" />
+                <img src="@/assets/banner.jpg" alt="轮播图" />
             </template>
         </Banner>
 
@@ -102,7 +102,7 @@
                     星佰汇门窗（ＣＩＢＩＶＡ）是佛山市星际铝业有限公司南海星佰汇门窗分公司直属品牌，坐落于中国铝材之都——广东佛山，生产基地总面积50000多平方米，是一家集设计、研发、生产、销售、服务为一体的专业化、技术化门窗生产厂家。
                 </p>
                 <p>
-                    <img src="../assets/about/introduce/logo_big.png" alt="" />
+                    <img src="@/assets/about/introduce/logo_big.png" alt="" />
                 </p>
                 <h3>公司业务</h3>
                 <p>
@@ -146,9 +146,9 @@
                 <p>全国消费者放心满意品牌</p>
                 <p>门窗协会理事单位</p>
                 <p>
-                    <img src="../assets/about/introduce/315.png" alt="" />
-                    <img src="../assets/about/introduce/2017.png" alt="" />
-                    <img src="../assets/about/introduce/changwu.png" alt="" />
+                    <img src="@/assets/about/introduce/315.png" alt="" />
+                    <img src="@/assets/about/introduce/2017.png" alt="" />
+                    <img src="@/assets/about/introduce/changwu.png" alt="" />
                 </p>
             </template>
         </Artical>
@@ -224,11 +224,11 @@
 </template>
 
 <script>
-import Banner from "@/components/Banner";
-import Footer from "@/components/Footer";
-import SubMenu from "@/components/SubMenu";
-import Artical from "@/components/Artical";
-import JerrySwiper from "../components/JerrySwiper";
+import Banner from "@/components/Banner/index.vue";
+import Footer from "@/components/Footer/index.vue";
+import SubMenu from "@/components/SubMenu/index.vue";
+import Artical from "@/components/Artical/index.vue";
+import JerrySwiper from "@/components/JerrySwiper/index.vue";
 
 import aboutDataObj from '@/data/about.js'
 import aboutOptionObj from '@/option/about.js'

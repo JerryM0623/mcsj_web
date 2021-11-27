@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <div class="logo">
-            <img src="../assets/logo.png" alt="logo">
+            <img src="@/assets/logo.png" alt="logo">
         </div>
         <ul class="links">
             <li v-for="link in links" :key="link.index"><router-link exact :to="link.path">{{link.text}}</router-link></li>

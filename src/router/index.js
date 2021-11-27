@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '../views/Home.vue'
+import Home from '../views/Home/index.vue'
 
 Vue.use(VueRouter)
 
@@ -14,7 +14,7 @@ const routes = [
   {
     path:'/about',
     name:'about',
-    component:() => import('@/views/About'),
+    component:() => import('@/views/About/index.vue'),
     meta:{
       title:'关于星百汇'
     }
@@ -22,7 +22,7 @@ const routes = [
   {
     path:'/product',
     name:'product',
-    component:() => import('@/views/Product'),
+    component:() => import('@/views/Product/index.vue'),
     meta:{
       title:'产品展示'
     }
@@ -30,7 +30,7 @@ const routes = [
   {
     path:'/business',
     name:'business',
-    component:() => import('@/views/Business'),
+    component:() => import('@/views/Business/index.vue'),
     meta:{
       title:'商学院'
     }
@@ -38,15 +38,22 @@ const routes = [
   {
     path:'/consult',
     name:'consult',
-    component:() => import('@/views/Consult'),
+    component:() => import('@/views/Consult/index.vue'),
     meta:{
       title:'媒体资讯'
-    }
+    },
+    children:[
+      {
+        path:'news',
+        name:'newsDetail',
+        component:() => import('@/views/Consult/News/index.vue')
+      }
+    ]
   },
   {
     path:'/VRshow',
     name:'VRshow',
-    component:() => import('@/views/VRshow'),
+    component:() => import('@/views/VRshow/index.vue'),
     meta:{
       title:'VR展厅'
     }
@@ -54,7 +61,7 @@ const routes = [
   {
     path: '/contact',
     name:'contact',
-    component:() => import('@/views/Contact'),
+    component:() => import('@/views/Contact/index.vue'),
     meta:{
       title:'联系我们'
     }
@@ -62,7 +69,7 @@ const routes = [
   {
     path:'/join',
     name:'join',
-    component: () => import('@/views/Join'),
+    component: () => import('@/views/Join/index.vue'),
     meta:{
       title:'加入我们'
     }

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import headerBar from '@/components/HeaderBar.vue'
-import TopBtn from '@/components/Topbtn'
+import headerBar from '@/components/HeaderBar/index.vue'
+import TopBtn from '@/components/Topbtn/index.vue'
 export default {
     name: "App",
     components:{

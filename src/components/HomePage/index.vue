@@ -7,7 +7,7 @@
             </div>
 <!--            line-->
             <div class="line-box">
-                <img src="../assets/home/line.png" alt="">
+                <img src="@/assets/home/line.png" alt="">
             </div>
 <!--            small-title-->
             <div class="small-title-box">

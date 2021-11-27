@@ -2,7 +2,7 @@
 <div class="product">
     <Banner>
         <template>
-            <img src="../assets/banner2.jpg" alt="轮播图">
+            <img src="@/assets/banner2.jpg" alt="轮播图">
         </template>
     </Banner>
     <Footer></Footer>
@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Banner from '@/components/Banner'
-import Footer from '@/components/Footer'
+import Banner from '@/components/Banner/index.vue'
+import Footer from '@/components/Footer/index.vue'
 export default {
     name: "Product",
     components:{

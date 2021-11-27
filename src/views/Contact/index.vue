@@ -2,7 +2,7 @@
     <div class="contact">
         <Banner>
             <template>
-                <img src="../assets/banner5.jpg" alt="轮播图">
+                <img src="@/assets/banner5.jpg" alt="轮播图">
             </template>
         </Banner>
         <SubMenu>
@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import Banner from '@/components/Banner'
-import Footer from '@/components/Footer'
-import SubMenu from "@/components/SubMenu"
-import ContactInfomation from "@/components/ContactInfomation";
+import Banner from '@/components/Banner/index.vue'
+import Footer from '@/components/Footer/index.vue'
+import SubMenu from "@/components/SubMenu/index.vue"
+import ContactInfomation from "@/components/ContactInfomation/index.vue";
 
 export default {
     name: "Contact",

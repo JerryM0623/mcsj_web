@@ -305,10 +305,10 @@
 </template>
 
 <script>
-import HomePage from "@/components/HomePage";
-import Footer from "@/components/Footer";
-import JerrySwiper from "@/components/JerrySwiper";
-import NewsItem from "@/components/NewsItem";
+import HomePage from "@/components/HomePage/index.vue";
+import Footer from "@/components/Footer/index.vue";
+import JerrySwiper from "@/components/JerrySwiper/index.vue";
+import NewsItem from "@/components/NewsItem/index.vue";
 
 import homeDataObj from "@/data/home.js";
 import homeOptionObj from "@/option/home.js";

@@ -3,7 +3,7 @@
     <!-- 顶部图片 -->
     <Banner>
         <template>
-            <img src="../assets/banner4.jpg" alt="轮播图">
+            <img src="@/assets/banner4.jpg" alt="轮播图">
         </template>
     </Banner>
     <!-- 中间导航菜单 -->
@@ -17,7 +17,7 @@
     <!-- 媒体咨询内容展示区 -->
     <div id="news" class="media-news-show-box">
         <div class="news-item-box" v-for="item in newsList" :key="item.miImgUid">
-            <router-link to="/">
+            <router-link to="/consult/news">
                 <NewsItem
                     :isBorder="false"
                     backgroundColor="white"
@@ -40,17 +40,18 @@
             :getPrevPageNews="getPrevPageNews"
         ></PageControl>
     </div>
+    <router-view></router-view>
     <!-- 页脚 -->
     <Footer></Footer>
 </div>
 </template>
 
 <script>
-import Banner from '@/components/Banner'
-import Footer from '@/components/Footer'
-import SubMenu from "@/components/SubMenu";
-import NewsItem from '@/components/NewsItem';
-import PageControl from '@/components/PageControl'
+import Banner from '@/components/Banner/index.vue'
+import Footer from '@/components/Footer/index.vue'
+import SubMenu from "@/components/SubMenu/index.vue";
+import NewsItem from '@/components/NewsItem/index.vue';
+import PageControl from '@/components/PageControl/index.vue'
 
 export default {
     name: "Consult",
