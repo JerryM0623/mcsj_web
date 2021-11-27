@@ -1,5 +1,5 @@
 <template>
-  <div class="news-box">
+  <div class="news-box" :style="{border: isBorder ? '1px solid black' : ''}">
     <div class="news-box-top clearfix">
       <div class="news-box-top-date">{{ newsDate }}</div>
       <div class="news-box-top-arrow">
@@ -12,7 +12,7 @@
       <p class="news-box-middle-text">{{ newsText }}</p>
     </div>
     <div class="news-box-bottom">
-      <img src="@/assets/home/part9/news1.png" alt="">
+      <img :src="newsImg" alt="">
     </div>
   </div>
 </template>
@@ -32,6 +32,14 @@ export default {
     newsText:{
       type:String,
       required:true
+    },
+    isBorder:{
+      type:Boolean,
+      required:true
+    },
+    newsImg:{
+      type:String,
+      required:true
     }
   }
 
@@ -41,14 +49,16 @@ export default {
 <style scoped>
 .news-box{
   width: 100%;
-  height: 420px;
   overflow: hidden;
   padding: 15px;
-  border: 1px solid black;
+  background-color: white;
   /* border-radius: 15px; */
   text-align: left;
   transition: all .2s;
   /* background-color: black; */
+}
+.news-box .news-box-top{
+  min-height: 30px;
 }
 .news-box .news-box-top div:nth-child(1){
   float: left;
@@ -77,6 +87,7 @@ export default {
   background-color: #b0b0b0;
 }
 .news-box .news-box-middle .news-box-middle-title{
+  min-height: 70px;
   font-weight: 400;
   line-height: 2;
   font-size: 18px;
@@ -101,6 +112,7 @@ export default {
 }
 .news-box .news-box-bottom{
   margin-top: 10px;
+  max-height: 140px;
 }
 .news-box .news-box-bottom img{
   width: 100%;
@@ -109,7 +121,6 @@ export default {
 /* 鼠标悬浮样式集 */
 .news-box:hover{
   background-color: #d1a177;
-  border: 1px solid #d1a177;
 }
 .news-box:hover .news-box-top .news-box-top-date,
 .news-box:hover .news-box-middle .news-box-middle-title{
