@@ -13,7 +13,7 @@
             </template>
         </SubMenu>
         <div id="contact" class="AMap-container">
-            <amap :center="point" :zoom="17">
+            <amap :center="point" :zoom="18">
                 <amap-marker :position="point" :label="{ content }"></amap-marker>
                 <amap-control-bar></amap-control-bar>
                 <amap-hawk-eye></amap-hawk-eye>
@@ -60,11 +60,14 @@ export default {
     },
     data() {
         return {
+            // 悬浮标签的模板
             content:`<div class="label-box">
                 <p class="label-box-top">佛山市星百汇门窗</p>
                 <p class="label-box-bottom">地址：广东省佛山市南海区松岗松夏工业园东风中路10号</p>
                 </div>`,
-            point:[113.048705, 23.172090],
+            // 地图中心点 
+            point:[113.047788, 23.172100],
+            // 数据列表
             infomationList:[
                 {
                     id:'001',
