@@ -6,15 +6,15 @@
             </div>
             <div class="lecture-item-right-box">
                 <div class="top-box">
-                    <p class="top-title">{{lectureItem.title}}</p>
-                    <p class="top-small-title">{{lectureItem.smallTitle}}</p>
+                    <p class="top-title">{{lectureItem.teamName}}</p>
+                    <p class="top-small-title">{{lectureItem.teamDeclaration}}</p>
                 </div>
                 <div class="middle-box">
-                    <p class="describe">{{lectureItem.describe}}</p>
+                    <p class="describe">{{lectureItem.teamIntroduce}}</p>
                 </div>
                 <div class="bottom-box">
                     <p class="bottom-title">课程：</p>
-                    <p class="bottom-content">{{lectureItem.courses}}</p>
+                    <p class="bottom-content">{{lectureItem.teamClass}}</p>
                 </div>
             </div>
         </div>
@@ -40,8 +40,11 @@ export default {
 
 <style scoped>
 .lecture-item{
-    padding: 50px 150px;
+    padding: 50px 150px 0;
     background-color: #f5f5f5;
+}
+.lecture-item:nth-last-child(1){
+    margin-bottom: 50px;
 }
 .lecture-item-box{
     height: 350px;

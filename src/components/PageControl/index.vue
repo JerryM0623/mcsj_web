@@ -36,17 +36,17 @@ export default {
             required:true
         },
         // 获取指定页面的新闻
-        getSpecifiedPageNews:{
+        getSpecifiedPage:{
             type:Function,
             required:true
         },
         // 获取下一个页面的新闻
-        getNextPageNews:{
+        getNextPage:{
             type:Function,
             required:true
         },
         // 获取上一个页面的新闻
-        getPrevPageNews:{
+        getPrevPage:{
             type:Function,
             required:true
         }
@@ -62,7 +62,7 @@ export default {
         handlerClick(index,event){
             if(event.target.className !== 'active'){
                 // 传递给父组件进行事件处理
-                this.getSpecifiedPageNews(parseInt(index));
+                this.getSpecifiedPage(parseInt(index));
             }
         },
         /**
@@ -71,7 +71,7 @@ export default {
          */
         handlerNext(){
             // 传递给父组件进行事件处理
-            this.getNextPageNews();
+            this.getNextPage();
         },
         /**
          * 处理点击上一页事件
@@ -79,7 +79,7 @@ export default {
          */
         handlerPrev(){
             // 传递给父组件进行事件处理
-            this.getPrevPageNews();
+            this.getPrevPage();
         }
     }
 }

@@ -15,7 +15,14 @@
     <div id="lecture">
         <LectureItem v-for="lectureItem in lectures" :key="lectureItem.index" :lecture-item="lectureItem"></LectureItem>
     </div>
-    <PageControl :currentPageNum="currentPageNum" :pageLength="totalCount"></PageControl>
+    <PageControl
+        :total='totalCount'
+        :pageNumList='bussinessPageNumList'
+        :currentPageIndex='currentPageIndex'
+        :getSpecifiedPage='getSpecifiedPage'
+        :getNextPage='getNextPage'
+        :getPrevPage='getPrevPage'
+    ></PageControl>
     <Footer></Footer>
 </div>
 </template>
@@ -44,43 +51,76 @@ export default {
     },
     data(){
         return{
-            // 总数据
-            lectures:[
-                {
-                    id:'001',
-                    title:'战狼团队',
-                    smallTitle:'战狼团队',
-                    describe:'星佰汇门窗骨干力量，为星佰汇的发展贡献了自己的青春与才华。用自己的热情与阳光带领客服部温暖全国经销商。',
-                    courses:'《领袖的风采》、《完美狼团队》、《细节决定成败》、《精细化生产》、《赢销为王》、《企业发展三驾马车》'
-                },
-                {
-                    id:'002',
-                    title:'战狼团队',
-                    smallTitle:'战狼团队',
-                    describe:'星佰汇门窗骨干力量，为星佰汇的发展贡献了自己的青春与才华。用自己的热情与阳光带领客服部温暖全国经销商。',
-                    courses:'《领袖的风采》、《完美狼团队》、《细节决定成败》、《精细化生产》、《赢销为王》、《企业发展三驾马车》'
-                },
-                {
-                    id:'003',
-                    title:'战狼团队',
-                    smallTitle:'战狼团队',
-                    describe:'星佰汇门窗骨干力量，为星佰汇的发展贡献了自己的青春与才华。用自己的热情与阳光带领客服部温暖全国经销商。',
-                    courses:'《领袖的风采》、《完美狼团队》、《细节决定成败》、《精细化生产》、《赢销为王》、《企业发展三驾马车》'
-                }
-            ],
+            // 团队数据
+            lectures:[],
             // 每页显示数据
-            showSize:1,
+            PageSize:3,
             // 当前正在显示的页数
-            currentPageNum: 1,
+            currentPageIndex: 1,
             // 总的记录数
-            totalCount:0
+            totalCount:0,
+            // 总的页面数
+            totalPageNum:0,
+            // 传给 pageControl 组件的数组
+            bussinessPageNumList:[]
+        }
+    },
+    methods:{
+        /**
+         * 请求团队数据的方法
+         * currentPageIndex 当前页面数 默认值就是当前 data 里面的currentPageIndex
+         * pageSize 每页的大小 默认值就是当前 data 里面的 pageSize
+         */
+        getLectures(currentPageIndex = this.currentPageIndex,PageSize = this.PageSize){
+            this.$api.bussiness.getLectures(currentPageIndex,PageSize).then(result => {
+                console.log(result)
+                // 数据赋值到 data
+                this.lectures = result.data.records;
+                // 总记录数
+                this.totalCount = result.count
+                // 赋值页面数
+                this.totalPageNum = result.data.pages
+                // 根据页面数生成 list
+                let newArr = []
+                for(let i = 0 ; i < result.data.pages ; i++){
+                    newArr[i] = {
+                        id:'bussinessPageNumList'+i,
+                        content: i + 1
+                    }
+                }
+                this.bussinessPageNumList = newArr
+            })
+        },
+        /**
+         * 点击对应页面请求对应页面
+         * index 需要请求的 pageIndex
+         */
+        getSpecifiedPage(index){
+            this.currentPageIndex = index;
+            this.getLectures(index)
+        },
+        /**
+         * 点击下一页发送下一页的请求页面
+         */
+        getNextPage(){
+            if(this.currentPageIndex < this.totalPageNum){
+                this.currentPageIndex ++;
+                this.getLectures();
+            }
+        },
+        /**
+         * 点击上一页发送上一页的请求页面
+         */
+        getPrevPage(){
+            if(this.currentPageIndex > 1){
+                this.currentPageIndex --;
+                this.getLectures();
+            }
         }
     },
     mounted() {
-        this.$axios.get('/api/getLectureCount')
-            .then(result => {
-                console.log(result)
-            })
+        // 挂载完毕向服务器请求数据
+        this.getLectures();
     }
 }
 </script>
