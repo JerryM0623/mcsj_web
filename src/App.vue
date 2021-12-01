@@ -32,7 +32,7 @@ export default {
     font-size: 16px;
 }
 html,body{
-    font-family: 'Microsoft YaHei','Helvetica Neue','Arial','sans-serif','iconfont','icomoon','FontAwesome','Material Icons Extended';
+    font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
     min-width: 1300px;
     background-color: #f5f5f5;
 }
