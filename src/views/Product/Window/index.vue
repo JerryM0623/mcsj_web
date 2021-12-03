@@ -127,7 +127,7 @@ export default {
          * 此时分类的id，pageSize的大小应该都是直接定死的，也就是从 data 中直接获取
          */
         getSpecifiedPage(pageIndex,id = this.displayId,pageSize = this.pageSize){
-            // console.log(pageIndex,id,pageSize)
+            this.currentPageIndex = pageIndex
             this.$api.product.window.getWindowDataByPageIndex(pageIndex,id,pageSize).then(result => {
                 // 根据 result 生成新的数组
                 let newArr = [];
