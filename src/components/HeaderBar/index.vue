@@ -24,7 +24,7 @@ export default {
                     text:'关于星佰汇'
                 },
                 {
-                    path:'/product',
+                    path:'/product/window',
                     text:'产品展示'
                 },
                 {
