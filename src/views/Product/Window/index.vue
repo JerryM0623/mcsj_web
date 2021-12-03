@@ -87,8 +87,9 @@ export default {
          * pageSize：页面显示数据的最大数量
          */
         getWindowDataListById(id) {
-            // 将 currentPageIndex 更改
+            // 更新数据
             this.currentPageIndex = 1;
+            this.displayId = id
             // 请求数据
             this.$api.product.window
                 .getWindowDataById(id, this.currentPageIndex, this.pageSize)
