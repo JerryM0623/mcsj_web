@@ -6,12 +6,12 @@
       </div>
       <div class="side-menu-middle">
           <ul class="side-menu-middle-list">
-              <li v-for="item in sideMenuList" :key="item.id" class="side-menu-middle-list-item"><span>{{item.content}}</span></li>
+              <li v-for="item in sideMenuList" :key="item.id" exact class="side-menu-middle-list-item"><router-link :to="item.link">{{item.content}}</router-link></li>
           </ul>
       </div>
       <div class="side-menu-bottom">
             <span class="side-menu-bottom-box">
-                <span class="side-menu-bottom-img-box"><img src="@/assets/call_phone.png" alt="call_phone"></span>
+                <span class="side-menu-bottom-img-box"><img src="@/assets/sideMenu/call_phone.png" alt="call_phone"></span>
                 <router-link class="side-menu-bottom-join-buttom" to="/contact">立即加盟</router-link>
             </span>
       </div>
@@ -75,23 +75,24 @@ export default {
     padding: 0 30px;
     background-color: white;
 }
-.side-menu-middle .side-menu-middle-list .side-menu-middle-list-item span{
+.side-menu-middle .side-menu-middle-list .side-menu-middle-list-item a{
     display: inline-block;
     width: 100%;
     color: black;
     border-bottom: 1px solid #e7e7e7;
 }
-.side-menu-middle .side-menu-middle-list .side-menu-middle-list-item span:hover{
+.side-menu-middle .side-menu-middle-list .side-menu-middle-list-item a:hover,
+.side-menu-middle .side-menu-middle-list .side-menu-middle-list-item .router-link-active{
     color: #d1a177;
     cursor: pointer;
 }
-.side-menu-middle .side-menu-middle-list .side-menu-middle-list-item:nth-last-child(1) span{
+.side-menu-middle .side-menu-middle-list .side-menu-middle-list-item:nth-last-child(1) a{
     border: none;
 }
 .side-menu-bottom{
     width: 100%;
     height: 190px;
-    background-image: url('../../assets/backimg.jpg');
+    background-image: url('../../assets/sideMenu/backimg.jpg');
 }
 .side-menu-bottom .side-menu-bottom-box{
     display: inline-block;
