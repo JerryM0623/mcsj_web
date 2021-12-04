@@ -30,9 +30,13 @@ export default {
 <style scoped>
 .product-item {
     float: left;
-    width: 290px;
+    /* width: 290px; */
+    width: calc(100% / 3 - 20px);
     margin-bottom: 40px;
-    margin-right: 20px;
+    margin-right: 30px;
+}
+.product-item:nth-child(3n + 3){
+    margin-right: 0;
 }
 .product-item .product-item-img-box,
 .product-item .product-item-img-box img {
@@ -40,7 +44,7 @@ export default {
     height: 100%;
 }
 .product-item .product-item-img-box {
-    height: 200px;
+    height: calc(200px * 1.8);
     position: relative;
 }
 
@@ -57,12 +61,13 @@ export default {
     background-color: rgba(0,0,0,0.5);
     opacity: 0;
     transition: all .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .product-item .product-item-img-box .product-item-mask .product-item-mask-img-box{
     width: 30px;
     height: 30px;
-    margin-top: 85px;
-    margin-left: 130px;
 }
 .product-item .product-item-img-box .product-item-mask .product-item-mask-img-box img{
     width: 100%;
