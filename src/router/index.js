@@ -25,7 +25,24 @@ const routes = [
     component:() => import('@/views/Product/index.vue'),
     meta:{
       title:'产品展示'
-    }
+    },
+    children:[
+      {
+        path:'window',
+        name:'window',
+        component:() => import('@/views/Product/Window/index.vue')
+      },
+      {
+        path:'door',
+        name:'door',
+        component:() => import('@/views/Product/Door/index.vue')
+      },
+      {
+        path:'house',
+        name:'house',
+        component:() => import('@/views/Product/House/index.vue')
+      },
+    ]
   },
   {
     path:'/business',
@@ -44,7 +61,7 @@ const routes = [
     },
     children:[
       {
-        path:'news',
+        path:'news/:id',
         name:'newsDetail',
         component:() => import('@/views/Consult/News/index.vue')
       }

@@ -9,14 +9,16 @@
 
     <!-- 内容部分 -->
     <div class="product-middle clearfix">
-        <div class="product-middle-left">
+        <div float-box class="product-middle-left">
             <SideMenu
                 chineseTitle='产品展示'
                 englishTitle='PRODUCT DISPLAY'
                 :sideMenuList='sideMenuList'
             ></SideMenu>
         </div>
-        <div class="product-middle-right">456</div>
+        <div float-box class="product-middle-right">
+            <router-view></router-view>
+        </div>
     </div>
 
     <!-- 页脚 -->
@@ -41,9 +43,9 @@ export default {
             sideMenuList:[
                 // id必须要，用于传给 vue 进行 diff 算法计算
                 // content 就是用于展示的数据
-                {id:'sideMenuList001',content:'窗系列'},
-                {id:'sideMenuList002',content:'门系列'},
-                {id:'sideMenuList003',content:'房系列'}
+                {id:'sideMenuList001',content:'窗系列',link:'/product/window'},
+                {id:'sideMenuList002',content:'门系列',link:'/product/door'},
+                {id:'sideMenuList003',content:'房系列',link:'/product/house'}
             ]
         }
     }
@@ -55,7 +57,7 @@ export default {
     padding: 0 150px;
     margin: 100px auto;
 }
-.product-middle div{
+.product-middle div[float-box]{
     float: left;
 }
 .product-middle .product-middle-left{
@@ -63,7 +65,6 @@ export default {
     margin-right: 65px;
 }
 .product-middle .product-middle-right{
-    width: 934px;
-    background-color: purple;
+    width: calc(100% - 285px);
 }
 </style>
