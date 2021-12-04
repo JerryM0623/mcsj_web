@@ -16,6 +16,8 @@
             :pageNumList='pageNumList'
             :currentPageIndex='currentPageIndex'
             :getSpecifiedPage='getSpecifiedPage'
+            :getNextPage='getNextPage'
+            :getPrevPage='getPrevPage'
         ></PageControl>
     </div>
 </template>
@@ -47,7 +49,9 @@ export default {
             // 分页展示数字的数组
             pageNumList:[],
             // 当前正在展示的商品分类 id
-            displayId:1
+            displayId:1,
+            // 共有多少页
+            pageNum:0
         };
     },
     methods: {
@@ -104,6 +108,7 @@ export default {
                 // 更新 data
                 this.doorDataList = newArr
                 this.total = result.count
+                this.pageNum = pageNum
                 this.pageNumList = newPageNumList
             })
         },
@@ -131,6 +136,32 @@ export default {
                 this.doorDataList = newArr
             })
             
+        },
+        /**
+         * 请求上一页数据
+         * 此时分类的id，pageSize的大小应该都是直接定死的，也就是从 data 中直接获取
+         */
+        getPrevPage(){
+            // 判断
+            if(this.currentPageIndex > 1){
+                // 成功的话就要进行 index--
+                this.currentPageIndex --
+                // 再利用 -- 之后的数据进行数据请求
+                this.getSpecifiedPage(this.currentPageIndex)
+            }
+        },
+        /**
+         * 请求下一页数据
+         * 此时分类的id，pageSize的大小应该都是直接定死的，也就是从 data 中直接获取
+         */
+        getNextPage(){
+            //  判断
+            if(this.currentPageIndex < this.pageNum){
+                // 成功的话就要进行 index++
+                this.currentPageIndex ++;
+                // 再利用 ++ 之后的数据进行数据请求
+                this.getSpecifiedPage(this.currentPageIndex)
+            }
         }
     },
     mounted() {

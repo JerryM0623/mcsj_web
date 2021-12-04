@@ -174,8 +174,6 @@ export default {
         getNextPage(){
             //  判断
              if(this.currentPageIndex < this.pageNum){
-            console.log(1)
-
                 // 成功的话就要进行 index++
                 this.currentPageIndex ++;
                 // 再利用 ++ 之后的数据进行数据请求
