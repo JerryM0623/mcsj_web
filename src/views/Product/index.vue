@@ -55,7 +55,7 @@ export default {
 <style scoped>
 .product-middle{
     padding: 0 150px;
-    margin: 100px auto;
+    margin: 100px 0 50px;
 }
 .product-middle div[float-box]{
     float: left;
