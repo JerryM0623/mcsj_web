@@ -19,7 +19,17 @@ function getHouseDataListByIdOrPageIndex(rId,currentPage,limitPage){
     })
 }
 
+// 根据 hid 获取详细信息
+function getHouseGoodsDetail(hid){
+    return Axios.get('/commodity/roomParameter',{
+        params:{
+            rpId:hid
+        }
+    })
+}
+
 export default {
     getHouseSeries,
-    getHouseDataListByIdOrPageIndex
+    getHouseDataListByIdOrPageIndex,
+    getHouseGoodsDetail
 }

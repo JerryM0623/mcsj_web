@@ -30,9 +30,19 @@ function getWindowDataByPageIndex(currentPage,wId,limitPage){
     })
 }
 
+// 根据id获取商品详细信息
+function getWindowGoodsDetail(wid){
+    return Axios.get('/commodity/windowParameter',{
+        params:{
+            wpId:wid
+        }
+    })
+}
+
  export default {
      getWindowSeries,
      getWindowDataById,
-     getWindowDataByPageIndex
+     getWindowDataByPageIndex,
+     getWindowGoodsDetail
      
  }

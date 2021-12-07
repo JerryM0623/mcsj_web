@@ -1,30 +1,36 @@
 <template>
     <div class="window">
-        <!-- 产品分类选项卡 -->
-        <div class="window-series-show-box">
-            <ProductSeriesCard
-                :typeList="windowTypeList"
-                :getDataListById="getWindowDataListById"
-            ></ProductSeriesCard>
+        <div v-show='isListShow' class="window-goods-list">
+            <!-- 产品分类选项卡 -->
+            <div class="window-series-show-box">
+                <ProductSeriesCard
+                    :typeList="windowTypeList"
+                    :getDataListById="getWindowDataListById"
+                ></ProductSeriesCard>
+            </div>
+            <!-- 产品展示区 -->
+            <div class="window-item-show-box clearfix">
+                <ProductItem
+                    v-for="item in windowDataList"
+                    :key="item.id"
+                    :dataItem="item"
+                    @click.native="showGoodsDetails(item.wid)"
+                ></ProductItem>
+            </div>
+            <!-- 分页控制区 -->
+            <PageControl
+                style="padding: 0"
+                :currentPageIndex="currentPageIndex"
+                :total="total"
+                :pageNumList="pageNumList"
+                :getNextPage="getNextPage"
+                :getPrevPage="getPrevPage"
+                :getSpecifiedPage="getSpecifiedPage"
+            ></PageControl>
         </div>
-        <!-- 产品展示区 -->
-        <div class="window-item-show-box clearfix">
-            <ProductItem
-                v-for="item in windowDataList"
-                :key="item.id"
-                :dataItem="item"
-            ></ProductItem>
+        <div class="window-goods-detail">
+            <router-view :changeListStatus='changeListStatus'></router-view>
         </div>
-        <!-- 分页控制区 -->
-        <PageControl
-            style="padding: 0"
-            :currentPageIndex="currentPageIndex"
-            :total="total"
-            :pageNumList='pageNumList'
-            :getNextPage='getNextPage'
-            :getPrevPage='getPrevPage'
-            :getSpecifiedPage='getSpecifiedPage'
-        ></PageControl>
     </div>
 </template>
 
@@ -53,11 +59,13 @@ export default {
             currentPageIndex: 1,
             pageSize: 9,
             total: 0,
-            pageNum:0,
+            pageNum: 0,
             // 分页的数据数组列表
-            pageNumList:[],
+            pageNumList: [],
             // 当前正在展示的商品的分类 id(默认是1)
-            displayId:1
+            displayId: 1,
+            // 控制 list 是否显示 默认为true
+            isListShow: true,
         };
     },
     methods: {
@@ -78,10 +86,12 @@ export default {
                 this.windowTypeList = newArr;
             });
         },
+
+        
         /**
          * 根据 id 获取数据
          * 这个方法用于切换分类选项卡的时候加载数据和 window 组件第一次渲染的时候加载数据使用
-         * 
+         *
          * id：需要查询的id,默认就是 data 里面的displayId
          * currentPageIndex：需要查询的页数，默认是当前data里面的currentPageIndex
          * pageSize：页面显示数据的最大数量
@@ -89,17 +99,17 @@ export default {
         getWindowDataListById(id) {
             // 更新数据
             this.currentPageIndex = 1;
-            this.displayId = id
+            this.displayId = id;
             // 请求数据
             this.$api.product.window
                 .getWindowDataById(id, this.currentPageIndex, this.pageSize)
                 .then((result) => {
-
                     // 根据 result 生成新的数组
                     let newArr = [];
                     for (let i = 0; i < result.data.length; i++) {
                         newArr[i] = {
                             id: result.data[i].wpImgUid,
+                            wid:result.data[i].wpId,
                             imgUrl: result.data[i].wpImg,
                             imgAlt: result.data[i].wpName,
                             describe: result.data[i].wpName,
@@ -107,71 +117,99 @@ export default {
                     }
 
                     // 根据 count 计算页面数 并生成对应的 newPageNumList 数据数组
-                    const pageNum = Math.ceil(result.count / this.pageSize)
-                    let newPageNumList = []
-                    for(let i = 0 ; i < pageNum ; i++){
+                    const pageNum = Math.ceil(result.count / this.pageSize);
+                    let newPageNumList = [];
+                    for (let i = 0; i < pageNum; i++) {
                         newPageNumList[i] = {
-                            id:"windowPageNumList"+(i+1),
-                            content:(i+1)
-                        }
+                            id: "windowPageNumList" + (i + 1),
+                            content: i + 1,
+                        };
                     }
 
                     // 更新 data
                     this.total = result.count;
                     this.windowDataList = newArr;
-                    this.pageNum = pageNum
-                    this.pageNumList = newPageNumList
+                    this.pageNum = pageNum;
+                    this.pageNumList = newPageNumList;
                 });
         },
+
+
         /**
          * 请求当前点击页面的数据
          * 此时分类的id，pageSize的大小应该都是直接定死的，也就是从 data 中直接获取
          */
-        getSpecifiedPage(pageIndex,id = this.displayId,pageSize = this.pageSize){
-            this.currentPageIndex = pageIndex
-            this.$api.product.window.getWindowDataByPageIndex(pageIndex,id,pageSize).then(result => {
-                // 根据 result 生成新的数组
-                let newArr = [];
-                for (let i = 0; i < result.data.length; i++) {
-                    newArr[i] = {
-                        id: result.data[i].wpImgUid,
-                        imgUrl: result.data[i].wpImg,
-                        imgAlt: result.data[i].wpName,
-                        describe: result.data[i].wpName,
-                    };
-                }
+        getSpecifiedPage(
+            pageIndex,
+            id = this.displayId,
+            pageSize = this.pageSize
+        ) {
+            this.currentPageIndex = pageIndex;
+            this.$api.product.window
+                .getWindowDataByPageIndex(pageIndex, id, pageSize)
+                .then((result) => {
+                    // 根据 result 生成新的数组
+                    let newArr = [];
+                    for (let i = 0; i < result.data.length; i++) {
+                        newArr[i] = {
+                            id: result.data[i].wpImgUid,
+                            wid:result.data[i].wpId,
+                            imgUrl: result.data[i].wpImg,
+                            imgAlt: result.data[i].wpName,
+                            describe: result.data[i].wpName,
+                        };
+                    }
 
-                //更新 data
-                this.windowDataList = newArr
-            })
+                    //更新 data
+                    this.windowDataList = newArr;
+                });
         },
+
+
         /**
          * 请求上一页数据
          * 此时分类的id，pageSize的大小应该都是直接定死的，也就是从 data 中直接获取
          */
-        getPrevPage(){
+        getPrevPage() {
             // 判断
-            if(this.currentPageIndex > 1){
+            if (this.currentPageIndex > 1) {
                 // 成功的话就要进行 index--
-                this.currentPageIndex --
+                this.currentPageIndex--;
                 // 再利用 -- 之后的数据进行数据请求
-                this.getSpecifiedPage(this.currentPageIndex)
+                this.getSpecifiedPage(this.currentPageIndex);
             }
-            
-
         },
+
+
         /**
          * 请求下一页数据
          * 此时分类的id，pageSize的大小应该都是直接定死的，也就是从 data 中直接获取
          */
-        getNextPage(){
-             // 判断
-             if(this.currentPageIndex < this.pageNum){
+        getNextPage() {
+            // 判断
+            if (this.currentPageIndex < this.pageNum) {
                 // 成功的话就要进行 index++
-                this.currentPageIndex ++;
+                this.currentPageIndex++;
                 // 再利用 ++ 之后的数据进行数据请求
-                this.getSpecifiedPage(this.currentPageIndex)
-             }
+                this.getSpecifiedPage(this.currentPageIndex);
+            }
+        },
+
+
+        /**
+         * 显示商品详情的函数
+         */
+        showGoodsDetails(wid){
+            // 更新路由
+            this.$router.push(`window/window-goods/${wid}`)
+        },
+
+
+        /**
+         * 控制 list 的显示与隐藏
+         */
+        changeListStatus(status){
+            this.isListShow = status
         }
     },
     mounted() {

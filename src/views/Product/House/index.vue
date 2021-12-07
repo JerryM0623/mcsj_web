@@ -1,28 +1,34 @@
 <template>
     <div class="house">
-        <!-- 分类选项卡 -->
-        <ProductSeriesCard
-            :typeList="typeList"
-            :getDataListById="getHouseDataListById"
-        ></ProductSeriesCard>
-        <!-- 商品展示区 -->
-        <div class="window-item-show-box clearfix">
-            <ProductItem
-                v-for="item in HouseDataList"
-                :key="item.id"
-                :dataItem="item"
-            ></ProductItem>
+        <div class="house-goods-list" v-show="isListShow">
+            <!-- 分类选项卡 -->
+            <ProductSeriesCard
+                :typeList="typeList"
+                :getDataListById="getHouseDataListById"
+            ></ProductSeriesCard>
+            <!-- 商品展示区 -->
+            <div class="window-item-show-box clearfix">
+                <ProductItem
+                    v-for="item in HouseDataList"
+                    :key="item.id"
+                    :dataItem="item"
+                    @click.native="showGoodsDetails(item.hid)"
+                ></ProductItem>
+            </div>
+            <!-- 分页控制区 -->
+            <PageControl
+                style="padding: 0"
+                :total="total"
+                :pageNumList="pageNumList"
+                :currentPageIndex="currentPageIndex"
+                :getSpecifiedPage="getSpecifiedPage"
+                :getNextPage="getNextPage"
+                :getPrevPage="getPrevPage"
+            ></PageControl>
         </div>
-        <!-- 分页控制区 -->
-        <PageControl
-            style="padding: 0"
-            :total="total"
-            :pageNumList="pageNumList"
-            :currentPageIndex="currentPageIndex"
-            :getSpecifiedPage="getSpecifiedPage"
-            :getNextPage='getNextPage'
-            :getPrevPage='getPrevPage'
-        ></PageControl>
+        <div class="house-goods-detail">
+            <router-view :changeListStatus='changeListStatus'></router-view>
+        </div>
     </div>
 </template>
 
@@ -56,6 +62,8 @@ export default {
             pageNum: 0,
             // 分页按钮列表
             pageNumList: [],
+            // 控制 list 是否显示 默认为true
+            isListShow: true,
         };
     },
     methods: {
@@ -75,6 +83,8 @@ export default {
                 this.typeList = newTypeList;
             });
         },
+
+
         /**
          * 通过 id 获取商品数据
          * 在页面的挂载阶段默认调用 或者 是用户切换类型选项卡的时候调用
@@ -99,6 +109,7 @@ export default {
                     for (let i = 0; i < result.data.length; i++) {
                         newHouseDataList[i] = {
                             id: result.data[i].rpImgUid,
+                            hid:result.data[i].rpId,
                             imgUrl: result.data[i].rpImg,
                             imgAlt: result.data[i].rpName,
                             describe: result.data[i].rpName,
@@ -117,11 +128,13 @@ export default {
 
                     // 更新 data
                     this.total = result.count;
-                    this.pageNum = pageNum
+                    this.pageNum = pageNum;
                     this.HouseDataList = newHouseDataList;
                     this.pageNumList = newPageNumList;
                 });
         },
+
+
         /**
          * 通过 pageIndex 进行数据获取
          * 点击分页组件具体页码按钮的时候调用此函数
@@ -144,6 +157,7 @@ export default {
                     for (let i = 0; i < result.data.length; i++) {
                         newHouseDataList[i] = {
                             id: result.data[i].rpImgUid,
+                            hid:result.data[i].rpId,
                             imgUrl: result.data[i].rpImg,
                             imgAlt: result.data[i].rpName,
                             describe: result.data[i].rpName,
@@ -152,33 +166,52 @@ export default {
                     this.HouseDataList = newHouseDataList;
                 });
         },
+
+
         /**
          * 请求上一页数据
          * 此时分类的id，pageSize的大小应该都是直接定死的，也就是从 data 中直接获取
          */
-        getPrevPage(){
+        getPrevPage() {
             // 判断
-            if(this.currentPageIndex > 1){
+            if (this.currentPageIndex > 1) {
                 // 成功的话就要进行 index--
-                this.currentPageIndex --
+                this.currentPageIndex--;
                 // 再利用 -- 之后的数据进行数据请求
-                this.getSpecifiedPage(this.currentPageIndex)
+                this.getSpecifiedPage(this.currentPageIndex);
             }
-            
-
         },
+
+
         /**
          * 请求下一页数据
          * 此时分类的id，pageSize的大小应该都是直接定死的，也就是从 data 中直接获取
          */
-        getNextPage(){
+        getNextPage() {
             //  判断
-             if(this.currentPageIndex < this.pageNum){
+            if (this.currentPageIndex < this.pageNum) {
                 // 成功的话就要进行 index++
-                this.currentPageIndex ++;
+                this.currentPageIndex++;
                 // 再利用 ++ 之后的数据进行数据请求
-                this.getSpecifiedPage(this.currentPageIndex)
-             }
+                this.getSpecifiedPage(this.currentPageIndex);
+            }
+        },
+
+
+        /**
+         * 显示商品详情的函数
+         */
+        showGoodsDetails(hid){
+            // 更新路由
+            this.$router.push(`house/house-goods/${hid}`)
+        },
+
+
+        /**
+         * 控制 list 的显示与隐藏
+         */
+        changeListStatus(status){
+            this.isListShow = status
         }
     },
     mounted() {

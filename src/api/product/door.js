@@ -31,8 +31,18 @@ function getDoorDataListByPageIndex(dId,currentPage,limitPage){
     })
 }
 
+// 根据 did 获取详细信息
+function getDoorGoodsDetail(did){
+    return Axios.get('/commodity/doorParameter',{
+        params:{
+            dpId:did
+        }
+    })
+}
+
 export default {
     getDoorSeries,
     getDoorDataListById,
-    getDoorDataListByPageIndex
+    getDoorDataListByPageIndex,
+    getDoorGoodsDetail
 }
