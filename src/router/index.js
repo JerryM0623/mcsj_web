@@ -121,14 +121,6 @@ const routes = [
         meta: {
             title: '联系我们'
         }
-    },
-    {
-        path: '/join',
-        name: 'join',
-        component: () => import('@/views/Join/index.vue'),
-        meta: {
-            title: '加入我们'
-        }
     }
 ]
 
