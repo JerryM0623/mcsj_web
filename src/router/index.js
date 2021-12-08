@@ -8,6 +8,10 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
+        redirect:'/home'
+    },
+    {
+        path: '/home',
         name: 'home',
         component: Home
     },
@@ -26,6 +30,7 @@ const routes = [
         meta: {
             title: '产品展示'
         },
+        redirect: '/product/window',
         children: [
             {
                 path: 'window',

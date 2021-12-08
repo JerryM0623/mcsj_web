@@ -4,7 +4,15 @@
             <img src="@/assets/logo.png" alt="logo">
         </div>
         <ul class="links">
-            <li v-for="link in links" :key="link.index"><router-link exact :to="link.path">{{link.text}}</router-link></li>
+            <li
+                v-for="link in links"
+                :key="link.index"
+            >
+                <router-link
+
+                    :to="link.path"
+                >{{link.text}}</router-link>
+            </li>
         </ul>
     </header>
 </template>
@@ -16,7 +24,7 @@ export default {
         return{
             links:[
                 {
-                    path:'/',
+                    path:'/home',
                     text:'首 页'
                 },
                 {
@@ -24,7 +32,7 @@ export default {
                     text:'关于星佰汇'
                 },
                 {
-                    path:'/product/window',
+                    path:'/product',
                     text:'产品展示'
                 },
                 {
