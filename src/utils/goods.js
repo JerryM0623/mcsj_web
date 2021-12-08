@@ -14,10 +14,6 @@
  */
 export default function(type, data, that){
 
-    console.log(type)
-    console.log(data)
-    console.log(that)
-
     // 解构赋值
     const {modelOne,modelTwo,modelThree} = data
 
