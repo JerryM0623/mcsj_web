@@ -211,6 +211,7 @@
                                         <div class="icon-box">
                                             <img
                                                 src="@/assets/home/part7/img1.png"
+                                                alt="img1.png"
                                             />
                                         </div>
                                         <h3>{{ item.title }}</h3>
@@ -433,7 +434,7 @@ export default {
 }
 .home-part2-icon-list img {
     width: 70px;
-    height: 80zpx;
+    height: 80px;
     transition: all 0.3s;
 }
 .home-part2-icon-list li:hover img {
