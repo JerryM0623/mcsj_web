@@ -1,26 +1,3 @@
-// part1的swiper的内容配置
-// const homePart1JerrySwiperDataList = [
-//   {
-//     id: "homePart1Pic001",
-//     imgUrl: require("@/assets/home/part1/pic1.jpg"),
-//     alt: "轮播图1",
-//   },
-//   {
-//     id: "homePart1Pic002",
-//     imgUrl: require("@/assets/home/part1/pic2.jpg"),
-//     alt: "轮播图2",
-//   },
-//   {
-//     id: "homePart1Pic003",
-//     imgUrl: require("@/assets/home/part1/pic3.jpg"),
-//     alt: "轮播图3",
-//   },
-//   {
-//     id: "homePart1Pic004",
-//     imgUrl: require("@/assets/home/part1/pic4.jpg"),
-//     alt: "轮播图4",
-//   },
-// ]
 // part2的text数据
 const homePart2TextDataList = [
   { id: "homePart2TextDataList001", 
@@ -227,7 +204,8 @@ const homePart8DataList = [
     iconUrl:require('@/assets/home/part8/icon1.png'),
     alt:'homePart8DataList001',
     describeChinese:'窗系列',
-    describeEnglish:'Window Series'
+    describeEnglish:'Window Series',
+    link:'/product/window'
   },
   {
     id:'homePart8DataList002',
@@ -235,7 +213,8 @@ const homePart8DataList = [
     iconUrl:require('@/assets/home/part8/icon2.png'),
     alt:'homePart8DataList002',
     describeChinese:'门系列',
-    describeEnglish:'Door Series'
+    describeEnglish:'Door Series',
+    link:'/product/door'
   },
   {
     id:'homePart8DataList003',
@@ -243,7 +222,8 @@ const homePart8DataList = [
     iconUrl:require('@/assets/home/part8/icon3.png'),
     alt:'homePart8DataList003',
     describeChinese:'房系列',
-    describeEnglish:'House Series'
+    describeEnglish:'House Series',
+    link:'/product/house'
   },
 ]
 

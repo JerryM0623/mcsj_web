@@ -263,7 +263,7 @@
                                 <p>{{ item.describeEnglish }}</p>
                             </div>
                             <div class="part8-buttom-box">
-                                <router-link to="/product"
+                                <router-link :to="item.link"
                                     >查看更多+</router-link
                                 >
                             </div>
@@ -284,7 +284,10 @@
                     <div class="part9-box">
                         <div class="part9-bottom-box"></div>
                         <div class="part9-news-box">
-                            <router-link to="/join" v-for="item in homePartDataLists.homePart9DataList" :key="item.miImgUid">
+                            <router-link
+                                v-for="item in homePartDataLists.homePart9DataList"
+                                :key="item.miImgUid"
+                                :to="item.link">
                                 <NewsItem
                                     :isBorder="true"
                                     backgroundColor="white"
@@ -355,9 +358,6 @@ export default {
             },
         };
     },
-    created() {
-        
-    },
     created(){
         /**
          * 引入home页面所有swiper的配置
@@ -391,7 +391,7 @@ export default {
             let newArr =[];
             // 遍历更新日历
             data.forEach((item,index) => {
-                newArr[index] = {...item,miDate:item.miDate.substring(5,10)}
+                newArr[index] = {...item,miDate:item.miDate.substring(5,10),link:`/consult/news/${item.miId}`}
             })
             // 赋值数据
             this.homePartDataLists.homePart9DataList = newArr;
