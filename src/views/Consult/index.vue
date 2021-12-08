@@ -6,18 +6,24 @@
             <img src="@/assets/banner4.jpg" alt="轮播图">
         </template>
     </Banner>
-    <!-- 中间导航菜单 -->
-    <SubMenu>
-        <template>
-            <ul>
-                <li @click.prevent="customAnchor('#news')">公司新闻</li>
-            </ul>
-        </template>
-    </SubMenu>
-    <!-- 媒体咨询内容展示区 -->
-    <div id="news" class="media-news-show-box">
-        <div class="news-item-box" v-for="item in newsList" :key="item.miImgUid">
-            <router-link to="/consult/news">
+    <!-- 整个中间区域 -->
+    <div class="media-news-box" v-show="isMediaNewsShow">
+        <!-- 中间导航菜单 -->
+        <SubMenu>
+            <template>
+                <ul>
+                    <li @click.prevent="customAnchor('#news')">公司新闻</li>
+                </ul>
+            </template>
+        </SubMenu>
+        <!-- 媒体咨询内容展示区 -->
+        <div id="news" class="media-news-show-box">
+            <div
+                class="news-item-box"
+                v-for="item in newsList"
+                :key="item.miImgUid"
+                @click="showNewsDetail(item.miId)"
+            >
                 <NewsItem
                     :isBorder="false"
                     backgroundColor="white"
@@ -26,21 +32,26 @@
                     :newsText="item.introduce"
                     :newsImg="item.miImg"
                 ></NewsItem>
-            </router-link>
+            </div>
+        </div>
+        <!-- 分页按钮控制 -->
+        <div class="page-control-box">
+            <PageControl
+                :total="total"
+                :pageNumList="pageNumList"
+                :currentPageIndex="currentPageIndex" 
+                :getSpecifiedPage="getSpecifiedPageNews"
+                :getNextPage="getNextPageNews"
+                :getPrevPage="getPrevPageNews"
+            ></PageControl>
         </div>
     </div>
-    <!-- 分页按钮控制 -->
-    <div class="page-control-box">
-        <PageControl
-            :total="total"
-            :pageNumList="pageNumList"
-            :currentPageIndex="currentPageIndex" 
-            :getSpecifiedPageNews="getSpecifiedPageNews"
-            :getNextPageNews="getNextPageNews"
-            :getPrevPageNews="getPrevPageNews"
-        ></PageControl>
+    <!-- 文章详情 -->
+    <div class="media-news-info-box">
+        <router-view
+            :changeIsMediaShow="changeIsMediaShow"
+        ></router-view>
     </div>
-    <router-view></router-view>
     <!-- 页脚 -->
     <Footer></Footer>
 </div>
@@ -81,7 +92,9 @@ export default {
             // 数据，用于渲染的数据列表
             newsList:[],
             // 生成的页面数量
-            pageNumList:[]
+            pageNumList:[],
+            // 控制中间区域显示与小时
+            isMediaNewsShow:true
         }
     },
     mounted(){
@@ -139,6 +152,20 @@ export default {
                 this.currentPageIndex --;
                 this.getNews();
             }
+        },
+        /**
+         * 传给 ConsultNews 组件的函数,用于控制 media-box 的显示与关闭
+         * type: Boolean 类型
+         */
+        changeIsMediaShow(type){
+            this.isMediaNewsShow = type
+        },
+        /**
+         * 点击某一个新闻之后,跳转到新闻页面
+         */
+        showNewsDetail(id){
+            // 更新路由
+            this.$router.push(`/consult/news/${id}`);
         }
     },
     watch:{
